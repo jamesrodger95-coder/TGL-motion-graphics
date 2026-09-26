@@ -1,0 +1,21 @@
+{
+  "name": "tgl-motion-graphics",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Grow Label — a 12-second motion reel built from the website's own design system. Deterministic HTML/SVG frames, true motion blur, procedural soundtrack, rendered to MP4.",
+  "type": "module",
+  "scripts": {
+    "preview": "node scripts/preview.mjs",
+    "stills": "node scripts/stills.mjs",
+    "cues": "node scripts/cues.mjs > out/cues.json",
+    "audio": "npm run cues && python3 scripts/audio.py out/cues.json out/soundtrack.wav",
+    "frames": "node scripts/render.mjs --samples 16",
+    "encode": "python3 scripts/encode.py out/frames out/soundtrack.wav out/grow-label-reel.mp4",
+    "build": "npm run audio && npm run frames && npm run encode"
+  },
+  "dependencies": {
+    "@fontsource-variable/schibsted-grotesk": "^5.3.0",
+    "playwright-core": "1.56.1",
+    "sharp": "^0.34.0"
+  }
+}

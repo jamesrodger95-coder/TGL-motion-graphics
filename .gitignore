@@ -1,0 +1,6 @@
+node_modules/
+out/frames/
+out/stills/
+out/cues.json
+out/render.log
+out/preview*

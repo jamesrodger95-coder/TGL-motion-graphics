@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Grow Label — Motion Reel</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/@fontsource-variable/schibsted-grotesk/index.css"
+    />
+    <link rel="stylesheet" href="brand/tokens.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- A 1920x1080 stage. Every element is positioned by js/main.js as a pure
+         function of time, so any frame can be rendered in any order. -->
+    <div id="stage">
+      <div id="ground"></div>
+      <div id="shake">
+        <div id="world"></div>
+        <div id="rail"></div>
+        <div id="account"></div>
+        <div id="endcard"></div>
+      </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

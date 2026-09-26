@@ -1,0 +1,249 @@
+/* Copied verbatim from jamesrodger95-coder/the-grow-label-website-v2 @ b4a6f4c, src/styles/tokens.css.
+   The film reads its colours, curves and type scale from here so it cannot drift from the site. */
+/* ============================================================================
+   GROW LABEL — DESIGN TOKENS  (canonical source of truth)
+
+   Direction: warm-white ground, near-black type, graphite detail, one
+   restrained purple that only appears where revenue is being detected,
+   recovered or verified. Light-first, precise, quiet.
+
+   One typeface. Hierarchy comes from weight, size, tracking and colour — not
+   from a second family. That is what makes it read as a system rather than a
+   collection.
+   ========================================================================= */
+
+:root {
+  /* --- Ground: warm white through to near-black ------------------------- */
+  --gl-white: #fbfaf8; /* warm white — the default page */
+  --gl-paper: #f4f3f0; /* raised warm grey — alternating band */
+  --gl-mist: #eae8e3; /* light grey — recessed wells, tracks */
+  --gl-edge: #dedbd5; /* light grey — visible dividers */
+
+  --gl-ink: #0c0c0e; /* near-black — headlines, primary type */
+  --gl-graphite: #33333a; /* graphite — secondary type, dark panels */
+  --gl-graphite-deep: #17171b; /* graphite — dark sections */
+  /* Both of these carry real text — eyebrows, asides, row indices — so both
+     are chosen to clear 4.5:1 on the *worst* light ground, which is --gl-mist,
+     not on warm white. `node scripts/contrast.mjs` prints the table. */
+  --gl-slate: #5a5a62; /* faint type — 6.55 white, 6.16 paper, 5.58 mist */
+  --gl-slate-soft: #66666e; /* ghost type — 5.45 white, 5.13 paper, 4.65 mist */
+
+  /* --- PURPLE: the signal colour -----------------------------------------
+     Purple is not decoration on this site. It marks one thing: value that has
+     been detected, worked or recovered. A ten-step ramp, so every state a
+     control needs is a token rather than an ad-hoc rgba().
+
+     Contrast, measured: 500 on warm white 7.47, white on 500 7.80, white on
+     600 9.51, 300 on ink 8.31, 300 on graphite 7.60. Step 400 reaches only
+     3.79 on light, so it is allowed on large text and UI edges, never body.
+     ------------------------------------------------------------------- */
+  --gl-purple-50: #f3f1fd;
+  --gl-purple-100: #e6e2fa;
+  --gl-purple-200: #cdc6f4;
+  --gl-purple-300: #ab9fee;
+  --gl-purple-400: #7f70e2;
+  --gl-purple-500: #4a3ac4;
+  --gl-purple-600: #3e2fac;
+  --gl-purple-700: #33268f;
+  --gl-purple-800: #281d70;
+  --gl-purple-900: #1c1450;
+
+  /* Semantic roles. Components reference these, never a step directly. */
+  --gl-purple: var(--gl-purple-500); /* base: type and marks on light */
+  --gl-purple-hover: var(--gl-purple-600);
+  --gl-purple-active: var(--gl-purple-700);
+  --gl-purple-muted: var(--gl-purple-200); /* edges, tracks, inactive fills */
+  --gl-purple-quiet: var(--gl-purple-50); /* washes behind purple content */
+  --gl-purple-ondark: var(--gl-purple-300); /* type and marks on dark ground */
+  --gl-purple-ondark-hover: #c2b8f3;
+  --gl-purple-ondark-muted: rgba(171, 159, 238, 0.34);
+  --gl-purple-disabled: #b7b2cf; /* fill for a disabled purple control */
+
+  /* Retained aliases, so older rules keep resolving into the ramp. */
+  --gl-purple-bright: var(--gl-purple-300);
+  --gl-purple-ink: var(--gl-purple-700);
+  --gl-purple-wash: rgba(74, 58, 196, 0.07);
+  --gl-purple-line: rgba(74, 58, 196, 0.22);
+
+  /* --- Semantic. Used only where the colour carries the meaning. --------- */
+  --gl-verified: #1a6f56;
+  --gl-verified-wash: rgba(26, 111, 86, 0.09);
+  --gl-alert: #b3261e;
+  --gl-alert-wash: rgba(179, 38, 30, 0.08);
+
+  /* --- Value-stage ramp: one hue, four levels of certainty --------------- */
+  --gl-stage-1: rgba(74, 58, 196, 0.24);
+  --gl-stage-2: rgba(74, 58, 196, 0.46);
+  --gl-stage-3: rgba(74, 58, 196, 0.7);
+  --gl-stage-4: #4a3ac4;
+
+  --gl-stage-1-d: rgba(154, 143, 240, 0.28);
+  --gl-stage-2-d: rgba(154, 143, 240, 0.5);
+  --gl-stage-3-d: rgba(154, 143, 240, 0.68);
+  --gl-stage-4-d: #9a8ff0;
+
+  /* --- Typeface ----------------------------------------------------------
+     Schibsted Grotesk, variable 400–900. A grotesque with tight apertures and
+     a confident lowercase: precise at 15px, characterful at 120px. */
+  --gl-font: var(--font-schibsted), "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --gl-font-display: var(--gl-font);
+  --gl-font-sans: var(--gl-font);
+  --gl-font-mono: var(--gl-font);
+
+  /* --- Type scale --------------------------------------------------------
+     Display sizes carry negative tracking that tightens as they grow.
+
+     Every clamp is authored as `min, intercept + slope, max`, so the size at
+     any width is readable from the formula rather than guessed. Resolved:
+
+       token        390px    768px    1440px
+       hero          36       49       72
+       display-1     30       39       56
+       display-2     27       33       44
+       display-3     21       24       28
+       display-4     17       18       20
+       lead          17       18       21
+       body          16       16       17
+       small         15       15       15
+     -------------------------------------------------------------------- */
+  --gl-t-hero: clamp(2.25rem, 1.412rem + 3.43vw, 4.5rem);
+  --gl-t-display-1: clamp(1.875rem, 1.269rem + 2.48vw, 3.5rem);
+  --gl-t-display-2: clamp(1.6875rem, 1.293rem + 1.62vw, 2.75rem);
+  --gl-t-display-3: clamp(1.3125rem, 1.147rem + 0.67vw, 1.75rem);
+  --gl-t-display-4: clamp(1.0625rem, 0.993rem + 0.29vw, 1.25rem);
+  --gl-t-lead: clamp(1.0625rem, 0.967rem + 0.38vw, 1.3125rem);
+  --gl-t-body: clamp(1rem, 0.977rem + 0.095vw, 1.0625rem);
+  --gl-t-small: 0.9375rem;
+  --gl-t-micro: 0.8125rem;
+  --gl-t-label: 0.75rem;
+  --gl-t-figure: clamp(2.5rem, 5.2vw, 4.25rem);
+  --gl-t-figure-sm: clamp(1.5rem, 2.4vw, 2rem);
+
+  --gl-tr-hero: -0.042em;
+  --gl-tr-display: -0.032em;
+  --gl-tr-tight: -0.018em;
+  --gl-tr-body: -0.006em;
+  --gl-tr-label: 0.012em;
+
+  --gl-lh-hero: 0.95;
+  --gl-lh-display: 1.02;
+  --gl-lh-tight: 1.14;
+  --gl-lh-body: 1.58;
+
+  --gl-w-regular: 400;
+  --gl-w-medium: 500;
+  --gl-w-semi: 600;
+  --gl-w-bold: 700;
+
+  /* --- Structure --------------------------------------------------------- */
+  --gl-s-1: 4px;
+  --gl-s-2: 8px;
+  --gl-s-3: 12px;
+  --gl-s-4: 16px;
+  --gl-s-5: 24px;
+  --gl-s-6: 32px;
+  --gl-s-7: 48px;
+  --gl-s-8: 64px;
+  --gl-s-9: 96px;
+  --gl-s-10: 128px;
+  --gl-s-11: 176px;
+
+  --gl-gutter: clamp(20px, 5vw, 72px);
+  --gl-maxw: 1360px;
+  --gl-maxw-wide: 1600px;
+  --gl-maxw-text: 66ch;
+  --gl-measure: 54ch;
+  --gl-section-y: clamp(80px, 10vw, 168px);
+  --gl-nav-h: 68px;
+
+  /* --- Geometry ----------------------------------------------------------
+     Soft, considered radii — Apple-adjacent rather than brutalist. Not a
+     rounded-card deck: radius is used on surfaces and controls, never as
+     decoration. */
+  --gl-r-xs: 6px;
+  --gl-r-sm: 10px;
+  --gl-r-md: 16px;
+  --gl-r-lg: 24px;
+  --gl-r-xl: 32px;
+  --gl-r-pill: 999px;
+
+  /* --- Elevation: light, cool, barely there ------------------------------ */
+  --gl-shadow-sm: 0 1px 2px rgba(12, 12, 14, 0.04), 0 2px 8px rgba(12, 12, 14, 0.03);
+  --gl-shadow-md: 0 2px 4px rgba(12, 12, 14, 0.04), 0 12px 32px rgba(12, 12, 14, 0.06);
+  --gl-shadow-lg: 0 4px 8px rgba(12, 12, 14, 0.05), 0 24px 64px rgba(12, 12, 14, 0.09);
+
+  /* The purple control's own elevation. A neutral grey shadow under a
+     saturated purple reads as dirt; tinting it with the fill's own hue is
+     what makes the button look like one object rather than a colour swatch
+     sitting on a smudge. Held at the same depth in every state, because the
+     response verb is colour and a shadow that grows is a bloom. */
+  --gl-shadow-purple: 0 1px 2px rgba(28, 20, 80, 0.16), 0 10px 28px rgba(46, 33, 138, 0.24);
+  --gl-shadow-purple-ondark: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(28, 20, 80, 0.45);
+
+  /* --- Motion ------------------------------------------------------------ */
+  /* Three durations. Micro is for state a finger is already on top of;
+     standard is for anything the reader asked for; orchestrated is for a
+     sequence that has more than one thing to say. There is no fourth. */
+  --gl-dur-micro: 180ms;
+  --gl-dur-standard: 320ms;
+  --gl-dur-orchestrated: 700ms;
+  /* The one exception: an ambient loop, which is not a response to anything. */
+  --gl-dur-ambient: 7000ms;
+  /* The hero detect sweep. It runs once, so it is an entrance and wants an
+     entrance duration: on the ambient 7s it was still animating 196 elements
+     ten seconds after load, straight through the reader first scroll. */
+  --gl-dur-sweep-in: 1600ms;
+
+  /* One curve. `--gl-ease` is used by every transition on this site that is
+     not a micro state change; consistency of easing across every animated
+     element is the single largest contributor to a site feeling considered.
+     It leaves fast, decelerates early and holds a long tail, so travel reads
+     as decisive at the start and settled at the end.
+
+     `--gl-ease-micro` is the same shape compressed for 180ms work, where a
+     long tail would read as lag. `--gl-ease-exit` is the only accelerating
+     curve, and only for something leaving. */
+  --gl-ease: cubic-bezier(0.2, 0.62, 0.2, 1);
+  --gl-ease-micro: cubic-bezier(0.3, 0.7, 0.25, 1);
+  --gl-ease-exit: cubic-bezier(0.55, 0.06, 0.7, 0.19);
+
+  /* Legacy names, deliberately collapsed onto the one curve and the one
+     scale. Anything still reaching for `--gl-ease-spring` now gets the house
+     curve instead, which is the point: the system is enforced structurally
+     rather than by review. */
+  --gl-dur-xfast: var(--gl-dur-micro);
+  --gl-dur-fast: var(--gl-dur-micro);
+  --gl-dur-base: var(--gl-dur-standard);
+  --gl-dur-slow: var(--gl-dur-orchestrated);
+  --gl-dur-scene: var(--gl-dur-orchestrated);
+  --gl-dur-sweep: var(--gl-dur-ambient);
+  --gl-ease-out: var(--gl-ease);
+  --gl-ease-inout: var(--gl-ease);
+  --gl-ease-settle: var(--gl-ease);
+  --gl-ease-precise: var(--gl-ease);
+  --gl-ease-spring: var(--gl-ease);
+
+  /* Entrance geometry, so every rise travels the same distance. */
+  --gl-rise: 14px;
+  --gl-stagger: 70ms;
+
+  --gl-focus-w: 2px;
+  --gl-focus-offset: 3px;
+
+  --gl-z-nav: 100;
+  --gl-z-overlay: 200;
+  --gl-z-modal: 300;
+  --gl-z-skip: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --gl-dur-micro: 1ms;
+    --gl-dur-standard: 1ms;
+    --gl-dur-orchestrated: 1ms;
+    --gl-dur-ambient: 1ms;
+    --gl-dur-sweep-in: 1ms;
+    --gl-stagger: 0ms;
+    --gl-rise: 0px;
+  }
+}

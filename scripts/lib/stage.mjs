@@ -1,0 +1,61 @@
+// Shared by the stills and frame renderers: a tiny static server for the repo
+// root, and a Chromium page with the film loaded and ready to seek.
+import { createServer } from 'node:http';
+import { readFile } from 'node:fs/promises';
+import { extname, join, normalize } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { chromium } from 'playwright-core';
+
+const ROOT = fileURLToPath(new URL('../../', import.meta.url));
+const TYPES = {
+  '.html': 'text/html',
+  '.js': 'text/javascript',
+  '.mjs': 'text/javascript',
+  '.css': 'text/css',
+  '.json': 'application/json',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+};
+
+export function serve(port = 0) {
+  return new Promise((resolve) => {
+    const server = createServer(async (req, res) => {
+      const path = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname)).replace(
+        /^([/\\])+/,
+        ''
+      );
+      try {
+        const body = await readFile(join(ROOT, path));
+        res.writeHead(200, { 'content-type': TYPES[extname(path)] || 'application/octet-stream' });
+        res.end(body);
+      } catch {
+        res.writeHead(404);
+        res.end();
+      }
+    });
+    server.listen(port, '127.0.0.1', () => resolve(server));
+  });
+}
+
+export async function openStage(server, { scale = 1 } = {}) {
+  const browser = await chromium.launch({
+    executablePath: process.env.CHROMIUM_PATH || undefined,
+    args: [
+      '--force-color-profile=srgb',
+      '--font-render-hinting=none',
+      '--disable-lcd-text',
+      '--hide-scrollbars',
+    ],
+  });
+  const page = await browser.newPage({
+    viewport: { width: 1920, height: 1080 },
+    deviceScaleFactor: scale,
+  });
+  page.on('pageerror', (e) => console.error('[page]', e.message));
+  page.on('console', (m) => m.type() === 'error' && console.error('[console]', m.text()));
+  await page.goto(`http://127.0.0.1:${server.address().port}/src/index.html`);
+  await page.waitForFunction(() => window.__ready === true, null, { timeout: 60000 });
+  return { browser, page };
+}
