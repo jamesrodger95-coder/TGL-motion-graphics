@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380.404" height="325.212" viewBox="0 0 380.404 325.212">
+<g id="Group_20465" data-name="Group 20465" transform="translate(-21310.848 7952.654)">
+    <rect id="Rectangle_50" data-name="wall" width="199.189" height="213.435" transform="translate(21469.709 -7841.511)" fill="#272F60"/>
+    <rect id="Rectangle_51" data-name="wall" width="199.189" height="213.435" transform="translate(21469.711 -7841.512)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_120" data-name="building" d="M351.083,274.22l65.646-85.846,53,85.846V500.568H351.083Z" transform="translate(21002.383 -8128.644)" fill="#272F60"/>
+    <path id="Path_121" data-name="Path 121" d="M351.083,274.22l65.646-85.846,53,85.846V500.568H351.083Z" transform="translate(21002.385 -8128.646)" fill="none" stroke="#ffffff33" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_122" data-name="Path 122" d="M434.671,180.456,360.049,321.923H335.167l74.622-141.467Z" transform="translate(20994.41 -8132.61)" fill="#141937"/>
+    <path id="Path_123" data-name="Path 123" d="M434.671,180.456,360.049,321.923H335.167l74.622-141.467Z" transform="translate(20994.41 -8132.61)" fill="none" stroke="#ffffff33" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_124" data-name="Path 124" d="M386.306,180.456H595.771l74.62,141.467H460.928Z" transform="translate(21020.031 -8132.61)" fill="#141937"/>
+    <path id="Path_125" data-name="Path 125" d="M386.306,180.456H595.771l74.62,141.467H460.928Z" transform="translate(21020.031 -8132.61)" fill="none" stroke="#ffffff33" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_54" data-name="door" width="46.862" height="113.62" transform="translate(21392.926 -7741.562)" fill="#0B0F24"/>
+    <rect id="Rectangle_55" data-name="Rectangle 55" width="46.862" height="113.62" transform="translate(21392.928 -7741.563)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_126" data-name="window-frame" d="M444.582,306.033V281.89h46.862V351.4H444.582V316.372" transform="translate(21049.227 -8081.794)" fill="#0B0F24"/>
+    <path id="Path_127" data-name="Path 127" d="M444.582,306.033V281.89h46.862V351.4H444.582V316.372" transform="translate(21049.227 -8081.794)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_57" data-name="windows" width="38.759" height="57.489" transform="translate(21497.859 -7793.894)" fill="#D9D1AE"/>
+    <rect id="Rectangle_58" data-name="Rectangle 58" width="38.759" height="57.489" transform="translate(21497.859 -7793.894)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_59" data-name="window-frame" width="4.613" height="57.489" transform="translate(21514.932 -7793.894)" fill="#0B0F24"/>
+    <rect id="Rectangle_60" data-name="Rectangle 60" width="4.613" height="57.489" transform="translate(21514.932 -7793.894)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_128" data-name="window-frame" d="M396.7,303.5h-18.27V233.986H425.29V303.5H404.454" transform="translate(21016.084 -8105.794)" fill="#0B0F24"/>
+    <path id="Path_129" data-name="Path 129" d="M396.7,303.5h-18.27V233.986H425.29V303.5H404.454" transform="translate(21016.084 -8105.794)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_61" data-name="windows" width="38.759" height="57.489" transform="translate(21398.564 -7865.798)" fill="#DAD1AE"/>
+    <rect id="Rectangle_62" data-name="Rectangle 62" width="38.759" height="57.489" transform="translate(21398.564 -7865.798)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_63" data-name="window-frame" width="4.613" height="57.489" transform="translate(21415.637 -7865.798)" fill="#0B0F24"/>
+    <rect id="Rectangle_64" data-name="window-frame" width="4.613" height="57.489" transform="translate(21415.637 -7865.798)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_65" data-name="window-frame" width="46.862" height="69.509" transform="translate(21493.809 -7718.413)" fill="#0B0F24"/>
+    <rect id="Rectangle_66" data-name="Rectangle 66" width="46.862" height="69.509" transform="translate(21493.809 -7718.413)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_67" data-name="windows" width="38.759" height="57.489" transform="translate(21497.859 -7712.403)" fill="#D9D1AE"/>
+    <rect id="Rectangle_68" data-name="Rectangle 68" width="38.759" height="57.489" transform="translate(21497.859 -7712.403)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_69" data-name="window-frame" width="4.613" height="57.489" transform="translate(21514.932 -7712.403)" fill="#0B0F24"/>
+    <rect id="Rectangle_70" data-name="Rectangle 70" width="4.613" height="57.489" transform="translate(21514.932 -7712.403)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_71" data-name="window-frame" width="46.862" height="69.509" transform="translate(21595.84 -7799.903)" fill="#0B0F24"/>
+    <rect id="Rectangle_72" data-name="Rectangle 72" width="46.862" height="69.509" transform="translate(21595.84 -7799.903)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_73" data-name="windows" width="38.759" height="57.489" transform="translate(21599.893 -7793.894)" fill="#D9D1AE"/>
+    <rect id="Rectangle_74" data-name="Rectangle 74" width="38.759" height="57.489" transform="translate(21599.893 -7793.894)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_130" data-name="window-frame" d="M526.633,297.307V285.894h4.613v57.491h-4.613v-38.84" transform="translate(21090.332 -8079.788)" fill="#0B0F24"/>
+    <path id="Path_131" data-name="Path 131" d="M526.633,297.307V285.894h4.613v57.491h-4.613v-38.84" transform="translate(21090.332 -8079.788)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_75" data-name="window-frame" width="46.862" height="69.509" transform="translate(21595.84 -7718.413)" fill="#0B0F24"/>
+    <rect id="Rectangle_76" data-name="Rectangle 76" width="46.862" height="69.509" transform="translate(21595.84 -7718.413)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_77" data-name="windows" width="38.759" height="57.489" transform="translate(21599.893 -7712.403)" fill="#D9D1AE"/>
+    <rect id="Rectangle_78" data-name="Rectangle 78" width="38.759" height="57.489" transform="translate(21599.893 -7712.403)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_79" data-name="window-frame" width="4.613" height="57.489" transform="translate(21616.965 -7712.403)" fill="#0B0F24"/>
+    <rect id="Rectangle_80" data-name="Rectangle 80" width="4.613" height="57.489" transform="translate(21616.965 -7712.403)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_132" data-name="solar" d="M402.486,186.607h84.189l29.993,56.859H432.479Z" transform="translate(21028.137 -8129.53)" fill="#0B0F24"/>
+    <path id="Path_133" data-name="Path 133" d="M402.486,186.607h84.189l29.993,56.859H432.479Z" transform="translate(21028.137 -8129.53)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_134" data-name="solar-panel" d="M406.547,188.629h75.2l26.79,50.789h-75.2Z" transform="translate(21030.172 -8128.517)" fill="#f3b112"/>
+    <path id="Path_135" data-name="Path 135" d="M406.547,188.629h75.2l26.79,50.789h-75.2Z" transform="translate(21030.172 -8128.517)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_19" data-name="Line 19" x2="26.79" y2="50.789" transform="translate(21450.086 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_20" data-name="Line 20" x2="26.79" y2="50.789" transform="translate(21450.086 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_21" data-name="Line 21" x2="26.79" y2="50.789" transform="translate(21465.916 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_22" data-name="Line 22" x2="26.79" y2="50.789" transform="translate(21465.916 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_23" data-name="Line 23" x2="26.79" y2="50.789" transform="translate(21481.746 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_24" data-name="Line 24" x2="26.79" y2="50.789" transform="translate(21481.746 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_25" data-name="Line 25" x2="26.79" y2="50.789" transform="translate(21497.578 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_26" data-name="Line 26" x2="26.79" y2="50.789" transform="translate(21497.578 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_136" data-name="Path 136" d="M410.422,195.513h0Z" transform="translate(21032.113 -8125.067)" fill="#e3c55b"/>
+    <line id="Line_27" data-name="Line 27" x1="74.931" transform="translate(21442.535 -7929.554)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_137" data-name="Path 137" d="M414.642,203.951h0Z" transform="translate(21034.227 -8120.841)" fill="#e3c55b"/>
+    <line id="Line_28" data-name="Line 28" x1="74.932" transform="translate(21448.867 -7916.89)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_138" data-name="Path 138" d="M418.86,212.388h0Z" transform="translate(21036.34 -8116.614)" fill="#e3c55b"/>
+    <line id="Line_29" data-name="Line 29" x1="74.931" transform="translate(21455.199 -7904.226)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_139" data-name="solar" d="M422.436,224.606h84.189l29.993,56.859H452.428Z" transform="translate(21038.131 -8110.493)" fill="#0B0F24"/>
+    <path id="Path_140" data-name="Path 140" d="M422.436,224.606h84.189l29.993,56.859H452.428Z" transform="translate(21038.131 -8110.493)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_141" data-name="solar-panel" d="M426.5,226.629h75.2l26.791,50.789h-75.2Z" transform="translate(21040.164 -8109.479)" fill="#f3b112" />
+    <path id="Path_142" data-name="Path 142" d="M426.5,226.629h75.2l26.791,50.789h-75.2Z" transform="translate(21040.164 -8109.479)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_30" data-name="Line 30" x2="26.79" y2="50.789" transform="translate(21480.029 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_31" data-name="Line 31" x2="26.79" y2="50.789" transform="translate(21480.029 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_32" data-name="Line 32" x2="26.79" y2="50.789" transform="translate(21495.859 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_33" data-name="Line 33" x2="26.79" y2="50.789" transform="translate(21495.859 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_34" data-name="Line 34" x2="26.79" y2="50.789" transform="translate(21511.691 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_35" data-name="Line 35" x2="26.79" y2="50.789" transform="translate(21511.691 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_36" data-name="Line 36" x2="26.79" y2="50.789" transform="translate(21527.521 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_37" data-name="Line 37" x2="26.79" y2="50.789" transform="translate(21527.521 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_143" data-name="Path 143" d="M430.372,233.513h0Z" transform="translate(21042.105 -8106.03)" fill="#e3c55b"/>
+    <line id="Line_38" data-name="Line 38" x1="74.932" transform="translate(21472.479 -7872.519)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_144" data-name="Path 144" d="M434.591,241.949h0Z" transform="translate(21044.221 -8101.804)" fill="#e3c55b"/>
+    <line id="Line_39" data-name="Line 39" x1="74.931" transform="translate(21478.813 -7859.853)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_145" data-name="Path 145" d="M438.809,250.387h0Z" transform="translate(21046.334 -8097.577)" fill="#e3c55b"/>
+    <line id="Line_40" data-name="Line 40" x1="74.932" transform="translate(21485.143 -7847.188)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_146" data-name="solar" d="M465.912,186.607H550.1l29.993,56.859H495.905Z" transform="translate(21059.912 -8129.53)" fill="#0B0F24"/>
+    <path id="Path_147" data-name="Path 147" d="M465.912,186.607H550.1l29.993,56.859H495.905Z" transform="translate(21059.912 -8129.53)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_148" data-name="solar-panel" d="M469.973,188.629h75.2l26.79,50.789h-75.2Z" transform="translate(21061.945 -8128.517)" fill="#f3b112" />
+    <path id="Path_149" data-name="Path 149" d="M469.973,188.629h75.2l26.79,50.789h-75.2Z" transform="translate(21061.945 -8128.517)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_41" data-name="Line 41" x2="26.79" y2="50.789" transform="translate(21545.289 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_42" data-name="Line 42" x2="26.79" y2="50.789" transform="translate(21545.289 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_43" data-name="Line 43" x2="26.79" y2="50.789" transform="translate(21561.117 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_44" data-name="Line 44" x2="26.79" y2="50.789" transform="translate(21561.117 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_45" data-name="Line 45" x2="26.79" y2="50.789" transform="translate(21576.949 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_46" data-name="Line 46" x2="26.79" y2="50.789" transform="translate(21576.949 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_47" data-name="Line 47" x2="26.79" y2="50.789" transform="translate(21592.779 -7939.888)" fill="#e3c55b"/>
+    <line id="Line_48" data-name="Line 48" x2="26.79" y2="50.789" transform="translate(21592.779 -7939.888)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_150" data-name="Path 150" d="M473.849,195.513h0Z" transform="translate(21063.887 -8125.067)" fill="#e3c55b"/>
+    <line id="Line_49" data-name="Line 49" x1="74.931" transform="translate(21537.738 -7929.554)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_151" data-name="Path 151" d="M478.067,203.951h0Z" transform="translate(21066 -8120.841)" fill="#e3c55b"/>
+    <line id="Line_50" data-name="Line 50" x1="74.932" transform="translate(21544.068 -7916.89)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_152" data-name="Path 152" d="M482.287,212.388h0Z" transform="translate(21068.115 -8116.614)" fill="#e3c55b"/>
+    <line id="Line_51" data-name="Line 51" x1="74.932" transform="translate(21550.4 -7904.226)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_153" data-name="solar" d="M485.862,224.606h84.189l29.993,56.859H515.855Z" transform="translate(21069.906 -8110.493)" fill="#0B0F24"/>
+    <path id="Path_154" data-name="Path 154" d="M485.862,224.606h84.189l29.993,56.859H515.855Z" transform="translate(21069.906 -8110.493)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_155" data-name="solar-panel" d="M489.923,226.629h75.2l26.79,50.789h-75.2Z" transform="translate(21071.941 -8109.479)" fill="#f3b112" />
+    <path id="Path_156" data-name="Path 156" d="M489.923,226.629h75.2l26.79,50.789h-75.2Z" transform="translate(21071.941 -8109.479)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_52" data-name="Line 52" x2="26.79" y2="50.789" transform="translate(21575.23 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_53" data-name="Line 53" x2="26.79" y2="50.789" transform="translate(21575.23 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_54" data-name="Line 54" x2="26.79" y2="50.789" transform="translate(21591.063 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_55" data-name="Line 55" x2="26.79" y2="50.789" transform="translate(21591.063 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_56" data-name="Line 56" x2="26.79" y2="50.789" transform="translate(21606.893 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_57" data-name="Line 57" x2="26.79" y2="50.789" transform="translate(21606.893 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_58" data-name="Line 58" x2="26.79" y2="50.789" transform="translate(21622.723 -7882.851)" fill="#e3c55b"/>
+    <line id="Line_59" data-name="Line 59" x2="26.79" y2="50.789" transform="translate(21622.723 -7882.851)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_157" data-name="Path 157" d="M493.8,233.513h0Z" transform="translate(21073.883 -8106.03)" fill="#e3c55b"/>
+    <line id="Line_60" data-name="Line 60" x1="74.932" transform="translate(21567.68 -7872.519)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_158" data-name="Path 158" d="M498.017,241.949h0Z" transform="translate(21075.996 -8101.804)" fill="#e3c55b"/>
+    <line id="Line_61" data-name="Line 61" x1="74.931" transform="translate(21574.014 -7859.853)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_159" data-name="Path 159" d="M502.236,250.387h0Z" transform="translate(21078.109 -8097.577)" fill="#e3c55b"/>
+    <line id="Line_62" data-name="Line 62" x1="74.932" transform="translate(21580.344 -7847.188)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_65" data-name="Line 65" x2="44.432" y2="84.236" transform="translate(21349.627 -7726.438)" fill="#e3c55b"/>
+    <line id="Line_67" data-name="Line 67" x2="44.432" y2="84.236" transform="translate(21375.883 -7726.438)" fill="#e3c55b"/>
+    <line id="Line_69" data-name="Line 69" x2="44.432" y2="84.236" transform="translate(21402.139 -7726.438)" fill="#e3c55b"/>
+    <path id="Path_164" data-name="Path 164" d="M322.689,342.252h0Z" transform="translate(20988.158 -8051.554)" fill="#e3c55b"/>
+    <path id="Path_165" data-name="Path 165" d="M329.686,356.246h0Z" transform="translate(20991.664 -8044.542)" fill="#e3c55b"/>
+    <path id="Path_166" data-name="Path 166" d="M336.683,370.239h0Z" transform="translate(20995.17 -8037.532)" fill="#e3c55b"/>
+</g>
+</svg>

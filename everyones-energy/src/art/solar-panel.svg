@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="191.033" height="105.795" viewBox="0 0 191.033 105.795">
+    <g id="Group_20463" data-name="Group 20463" transform="translate(-21091.262 7618.974)">
+        <rect id="Rectangle_8427" data-name="Rectangle 8427" width="10.075" height="55.071" transform="translate(21121.268 -7568.25)" fill="#313818"/>
+        <rect id="Rectangle_8428" data-name="Rectangle 8428" width="10.075" height="55.071" transform="translate(21228.723 -7568.25)" fill="#313818"/>
+        <path id="Path_160" data-name="panel-bg" d="M309.526,327.48H449.158l49.743,94.3H359.27Z" transform="translate(20782.564 -7945.954)" fill="#fff"/>
+        <path id="Path_161" data-name="Path 161" d="M309.526,327.48H449.158l49.743,94.3H359.27Z" transform="translate(20782.564 -7945.954)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Path_162" data-name="panel-color" d="M316.261,330.834H440.986l44.432,84.235H360.693Z" transform="translate(20785.938 -7944.272)" fill="#f3b112"/>
+        <path id="Path_163" data-name="Path 163" d="M316.261,330.834H440.986l44.432,84.235H360.693Z" transform="translate(20785.938 -7944.272)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line" data-name="Line 65" x2="44.432" y2="84.236" transform="translate(21124.627 -7613.438)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line_66" data-name="Line 66" x2="44.432" y2="84.236" transform="translate(21150.627 -7613.438)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line_68" data-name="Line 68" x2="44.432" y2="84.236" transform="translate(21176.883 -7613.438)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line_70" data-name="Line 70" x2="44.432" y2="84.236" transform="translate(21203.139 -7613.438)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line_71" data-name="Line 71" x1="124.277" transform="translate(21111.848 -7596.302)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line_72" data-name="Line 72" x1="124.279" transform="translate(21122.348 -7575.296)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="Line_73" data-name="Line 73" x1="124.277" transform="translate(21132.852 -7554.292)" fill="none" stroke="#313818" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+</svg>

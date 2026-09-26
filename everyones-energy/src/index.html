@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Everyone's Energy — Motion Reel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- A 1920x1080 stage. js/main.js positions everything as a pure function
+         of time, so any frame can be rendered in any order. -->
+    <div id="stage">
+      <div id="sky" class="layer"></div>
+      <div id="world" class="layer"></div>
+      <canvas id="flow" width="1920" height="1080"></canvas>
+      <canvas id="fx" width="1920" height="1080"></canvas>
+      <div id="type" class="layer"></div>
+      <div id="save" class="layer"></div>
+      <div id="logo" class="layer"></div>
+      <canvas id="fx2" width="1920" height="1080"></canvas>
+      <div id="grade" class="layer"></div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

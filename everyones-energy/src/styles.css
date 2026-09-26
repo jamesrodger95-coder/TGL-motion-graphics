@@ -1,0 +1,381 @@
+/* ============================================================================
+   EVERYONE'S ENERGY — MOTION REEL
+   Palette and type measured from https://everyonesenergy.co.uk/ (computed
+   styles and the theme's custom.css): Poppins; sun yellow #F3B112; navy
+   #141937; night ink rgb(6.4 8 17.6); CTA purple #721CE6; sun cream #FFF69C;
+   moonlight #4B4399; lit windows #DAD1AE; tree cream #FFE19F.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+
+:root {
+  --ee-yellow: #f3b112;
+  --ee-logo-orange: #f3af2d;
+  --ee-navy: #141937;
+  --ee-ink: rgb(6.4 8 17.6);
+  --ee-purple: #721ce6;
+  --ee-lilac: #bc8bff;
+  --ee-cream: #fff69c;
+  --ee-moon: #4b4399;
+  --ee-window: #dad1ae;
+  --ee-tree: #ffe19f;
+}
+
+html,
+body {
+  margin: 0;
+  background: #141937;
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--ee-navy);
+  color: var(--ee-navy);
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.layer,
+#flow,
+#fx,
+#fx2 {
+  position: absolute;
+  inset: 0;
+}
+#flow,
+#fx,
+#fx2 {
+  pointer-events: none;
+}
+#fx {
+  mix-blend-mode: screen;
+}
+#fx2 {
+  mix-blend-mode: screen;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+}
+svg {
+  overflow: visible;
+}
+
+/* -------------------------------------------------------------------- sky */
+.sky-day {
+  background: url("img/hero-home-bg.jpg") center / cover no-repeat;
+}
+.sky-day::before {
+  /* the site's .hero--home::before wash */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(243, 177, 18, 0.9);
+}
+.sky-night {
+  background: var(--ee-navy);
+}
+.sky-night .waves {
+  position: absolute;
+  inset: -10%;
+  background: url("img/waves-bg.jpg") center / cover no-repeat;
+  opacity: 0.55;
+}
+.sky-night .waves::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 25, 55, 0.8);
+}
+.stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1097px;
+  background: url("brand/stars.svg") center / cover no-repeat;
+}
+
+/* the site's .the-sun: radial #fff69c -> #f3b112 disc, cream glow and rays.png */
+.sun {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 190px;
+  height: 190px;
+  margin: -95px 0 0 -95px;
+}
+/* as on the site: the rays are ::before, the disc ::after (on top) */
+.sun .disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, #fff69c 95%, #f3b112);
+}
+.sun .rays {
+  position: absolute;
+  left: -315px;
+  top: -315px;
+  width: 820px;
+  height: 820px;
+  background:
+    url("brand/rays.png") center / contain no-repeat,
+    radial-gradient(circle, #f3b112 0%, rgba(243, 177, 18, 0) 64%);
+  background-blend-mode: screen;
+}
+.moon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 170px;
+  height: 170px;
+  margin: -85px 0 0 -85px;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, #fff 95%, #f3b112);
+}
+.moon::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: 8px;
+  width: 166px;
+  height: 146px;
+  background: url("brand/moon.svg") center / contain no-repeat;
+}
+.cloud {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.cloud svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------------------------------------ world */
+#world .cam {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+}
+.part {
+  position: absolute;
+  transform-origin: 50% 100%;
+}
+.part > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.part svg * {
+  transform-box: fill-box;
+}
+
+/* ------------------------------------------------------------------- type */
+.line {
+  position: absolute;
+  white-space: nowrap;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.08em 0.02em;
+  margin: -0.06em -0.08em -0.02em;
+}
+.w,
+.ch {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.h2 {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+}
+.h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+.icon {
+  position: absolute;
+  display: block;
+}
+.icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.icon svg [fill="#f3b112"] {
+  fill: currentColor;
+}
+
+/* ------------------------------------------------------------------- save */
+.save-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--ee-navy);
+  overflow: hidden;
+}
+.save-bg .waves {
+  position: absolute;
+  inset: -8%;
+  background: url("img/waves-bg.jpg") center / cover no-repeat;
+}
+.save-bg .waves::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 25, 55, 0.55);
+}
+.card {
+  position: absolute;
+  width: 460px;
+  height: 252px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 38px 40px 0;
+  text-align: center;
+  color: #fff;
+  background: rgba(14, 18, 44, 0.92);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+.card.featured {
+  background: var(--ee-yellow);
+  color: var(--ee-navy);
+}
+.card h3 {
+  margin: 14px 0 8px;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ee-yellow);
+}
+.card.featured h3 {
+  color: var(--ee-navy);
+}
+.card p {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.42;
+  font-weight: 400;
+}
+.card .ic {
+  display: block;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto;
+}
+.card .ic svg {
+  width: 100%;
+  height: 100%;
+}
+.num {
+  position: absolute;
+  font-weight: 800;
+  color: var(--ee-yellow);
+  white-space: nowrap;
+  line-height: 1;
+}
+.digit {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+}
+.digit .strip {
+  display: block;
+}
+.digit .strip span {
+  display: block;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------- logo */
+.logo-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--ee-navy);
+}
+.btn {
+  position: absolute;
+  height: 84px;
+  padding: 0 48px;
+  border-radius: 42px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 84px;
+  white-space: nowrap;
+  color: #000;
+  background: var(--ee-yellow);
+}
+.contact {
+  position: absolute;
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+}
+.contact b {
+  color: var(--ee-yellow);
+  font-weight: 700;
+}
+.foot {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ------------------------------------------------------------------ grade */
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 75% at 50% 48%,
+    transparent 60%,
+    rgba(10, 8, 30, 0.28) 100%
+  );
+}

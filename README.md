@@ -1,11 +1,12 @@
 # Motion reels
 
-Two 12-second, 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur and a procedurally synthesised soundtrack:
+Three 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur and a procedurally synthesised soundtrack:
 
-| Film                                              | Folder                                      | Output                                                                                 |
-| ------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **Grow Label**, AI revenue operations for clinics | repository root                             | [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4)                                   |
-| **Bryant Dental**, "Humanity, augmented."         | [`bryant-dental/`](bryant-dental/README.md) | [`bryant-dental/out/bryant-dental-reel.mp4`](bryant-dental/out/bryant-dental-reel.mp4) |
+| Film                                              | Folder                                            | Output                                                                                             |
+| ------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Grow Label**, AI revenue operations for clinics | repository root                                   | [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4)                                               |
+| **Bryant Dental**, "Humanity, augmented."         | [`bryant-dental/`](bryant-dental/README.md)       | [`bryant-dental/out/bryant-dental-reel.mp4`](bryant-dental/out/bryant-dental-reel.mp4)             |
+| **Everyone's Energy**, one day of solar in 15 s   | [`everyones-energy/`](everyones-energy/README.md) | [`everyones-energy/out/everyones-energy-reel.mp4`](everyones-energy/out/everyones-energy-reel.mp4) |
 
 The renderer (`scripts/render.mjs`, `--film <folder>`), stills, preview and encoder are shared.
 

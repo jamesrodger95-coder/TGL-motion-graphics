@@ -20,6 +20,7 @@ const TYPES = {
   '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.otf': 'font/otf',
+  '.ttf': 'font/ttf',
 };
 
 /** Films live at the repo root (Grow Label) or in their own folder (e.g. bryant-dental). */
