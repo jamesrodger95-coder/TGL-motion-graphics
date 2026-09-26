@@ -14,7 +14,7 @@
     "build": "npm run audio && npm run frames && npm run encode",
     "bryant:audio": "node bryant-dental/scripts/cues.mjs > bryant-dental/out/cues.json && python3 bryant-dental/scripts/audio.py bryant-dental/out/cues.json bryant-dental/out/soundtrack.wav",
     "bryant:frames": "node scripts/render.mjs --film bryant-dental --samples 16",
-    "bryant:encode": "python3 scripts/encode.py bryant-dental/out/frames bryant-dental/out/soundtrack.wav bryant-dental/out/bryant-dental-reel.mp4",
+    "bryant:encode": "GRAIN=3 python3 scripts/encode.py bryant-dental/out/frames bryant-dental/out/soundtrack.wav bryant-dental/out/bryant-dental-reel.mp4",
     "bryant:build": "npm run bryant:audio && npm run bryant:frames && npm run bryant:encode"
   },
   "dependencies": {

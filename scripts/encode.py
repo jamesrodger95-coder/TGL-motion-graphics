@@ -8,6 +8,7 @@
 """
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -31,12 +32,18 @@ norm = (
     f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true"
 )
 
+# GRAIN=n adds a little temporal luma grain, which stops dark gradients banding in 8-bit.
+GRAIN = int(os.environ.get("GRAIN", "0"))
+VF = "scale=out_color_matrix=bt709:out_range=tv:flags=lanczos+accurate_rnd+full_chroma_int,format=yuv420p"
+if GRAIN:
+    VF += f",noise=c0s={GRAIN}:c0f=t"
+
 cmd = [
     FF, "-hide_banner", "-loglevel", "error", "-y",
     "-framerate", "60", "-i", f"{frames}/f%04d.png",
     "-i", wav,
     "-map", "0:v", "-map", "1:a",
-    "-vf", "scale=out_color_matrix=bt709:out_range=tv:flags=lanczos+accurate_rnd+full_chroma_int,format=yuv420p",
+    "-vf", VF,
     "-c:v", "libx264", "-profile:v", "high", "-preset", "slow", "-crf", "14", "-tune", "animation",
     "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv",
     "-af", f"{norm},aresample=48000",
