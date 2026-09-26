@@ -1,4 +1,17 @@
-# Grow Label — 12-second motion reel
+# Motion reels
+
+Two 12-second, 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur and a procedurally synthesised soundtrack:
+
+| Film                                              | Folder                                      | Output                                                                                 |
+| ------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Grow Label**, AI revenue operations for clinics | repository root                             | [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4)                                   |
+| **Bryant Dental**, "Humanity, augmented."         | [`bryant-dental/`](bryant-dental/README.md) | [`bryant-dental/out/bryant-dental-reel.mp4`](bryant-dental/out/bryant-dental-reel.mp4) |
+
+The renderer (`scripts/render.mjs`, `--film <folder>`), stills, preview and encoder are shared.
+
+---
+
+## Grow Label — 12-second motion reel
 
 **Film:** [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4) · 1920×1080 · 60 fps · 12.0 s · stereo AAC  
 **Poster:** [`out/grow-label-reel-poster.png`](out/grow-label-reel-poster.png)

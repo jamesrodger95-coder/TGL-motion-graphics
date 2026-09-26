@@ -5,9 +5,11 @@ import { serve, openStage } from './lib/stage.mjs';
 const args = process.argv.slice(2);
 const oi = args.indexOf('--out');
 const out = oi >= 0 ? args.splice(oi, 2)[1] : 'out/stills';
+const fi = args.indexOf('--film');
+const film = fi >= 0 ? args.splice(fi, 2)[1] : '.';
 await mkdir(out, { recursive: true });
 const server = await serve();
-const { browser, page } = await openStage(server);
+const { browser, page } = await openStage(server, { film });
 for (const a of args) {
   const t = parseFloat(a);
   await page.evaluate((tt) => window.renderFrame(tt), t);

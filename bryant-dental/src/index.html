@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bryant Dental — Motion Reel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- A 1920x1080 stage. js/main.js positions everything as a pure function
+         of time, so any frame can be rendered in any order. -->
+    <div id="stage">
+      <canvas id="sky" width="1920" height="1080"></canvas>
+      <div id="s1" class="layer"></div>
+      <div id="s2" class="layer"></div>
+      <div id="s2b" class="layer"></div>
+      <div id="pills" class="layer"></div>
+      <div id="s3" class="layer"></div>
+      <div id="s4" class="layer"></div>
+      <div id="s5" class="layer"></div>
+      <canvas id="fx" width="1920" height="1080"></canvas>
+      <div id="vignette" class="layer"></div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

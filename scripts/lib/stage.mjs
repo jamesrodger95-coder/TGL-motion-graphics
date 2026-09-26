@@ -16,8 +16,14 @@ const TYPES = {
   '.woff2': 'font/woff2',
   '.woff': 'font/woff',
   '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
+  '.otf': 'font/otf',
 };
+
+/** Films live at the repo root (Grow Label) or in their own folder (e.g. bryant-dental). */
+export const filmDir = (film = '.') => (film === '.' ? '' : `${film.replace(/\/$/, '')}/`);
 
 export function serve(port = 0) {
   return new Promise((resolve) => {
@@ -39,7 +45,7 @@ export function serve(port = 0) {
   });
 }
 
-export async function openStage(server, { scale = 1 } = {}) {
+export async function openStage(server, { scale = 1, film = '.' } = {}) {
   const browser = await chromium.launch({
     executablePath: process.env.CHROMIUM_PATH || undefined,
     args: [
@@ -55,7 +61,7 @@ export async function openStage(server, { scale = 1 } = {}) {
   });
   page.on('pageerror', (e) => console.error('[page]', e.message));
   page.on('console', (m) => m.type() === 'error' && console.error('[console]', m.text()));
-  await page.goto(`http://127.0.0.1:${server.address().port}/src/index.html`);
-  await page.waitForFunction(() => window.__ready === true, null, { timeout: 60000 });
+  await page.goto(`http://127.0.0.1:${server.address().port}/${filmDir(film)}src/index.html`);
+  await page.waitForFunction(() => window.__ready === true, null, { timeout: 120000 });
   return { browser, page };
 }

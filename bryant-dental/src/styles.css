@@ -1,0 +1,279 @@
+/* ============================================================================
+   BRYANT DENTAL — MOTION REEL
+   Palette and type measured from https://bryant.dental/:
+   black ground, white type with grey (#868686) second clauses, one CTA blue
+   (#0071E3), electric-blue light, Neue Haas Grotesk Display (stand-in: TeX
+   Gyre Heros, see fonts/README.md).
+   ========================================================================= */
+
+@font-face {
+  font-family: "BD Grotesk";
+  src: url("fonts/texgyreheros-bold.otf") format("opentype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "BD Grotesk";
+  src: url("fonts/texgyreheros-regular.otf") format("opentype");
+  font-weight: 400;
+}
+
+:root {
+  --bd-font: "BD Grotesk", "Neue Haas Grotesk Display", "Helvetica Neue", Arial, sans-serif;
+  --bd-black: #000;
+  --bd-ink: #101010;
+  --bd-card: #1d1d1f;
+  --bd-white: #fff;
+  --bd-grey: #868686;
+  --bd-sand: #f1ebe4;
+  --bd-blue: #0071e3;
+  --bd-light: #2f8bff;
+}
+
+html,
+body {
+  margin: 0;
+  background: #000;
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--bd-black);
+  color: var(--bd-white);
+  font-family: var(--bd-font);
+  -webkit-font-smoothing: antialiased;
+}
+#sky,
+#fx,
+.layer {
+  position: absolute;
+  inset: 0;
+}
+#fx {
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+#vignette {
+  background: radial-gradient(
+    ellipse 75% 70% at 50% 50%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+.abs {
+  position: absolute;
+}
+
+/* ------------------------------------------------------------------- type */
+.head {
+  position: absolute;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  white-space: nowrap;
+}
+.head .w {
+  display: inline-block;
+  will-change: transform, filter, opacity;
+}
+.grey {
+  color: var(--bd-grey);
+}
+.sub {
+  position: absolute;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 0.74);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------- MagniFlex */
+.glow-blue {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(0, 113, 227, 0.55),
+    rgba(0, 113, 227, 0.16) 55%,
+    transparent
+  );
+}
+.seq {
+  position: absolute;
+}
+.seq img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pill {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.pill__ring {
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 3px solid var(--bd-light);
+  box-shadow: 0 0 22px 2px rgba(0, 113, 227, 0.8);
+}
+
+/* ---------------------------------------------------------------- the lens */
+.lens {
+  position: absolute;
+  border-radius: 50%;
+}
+.lens__view {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  /* A true clip: border-radius + overflow alone stops clipping once a child is composited. */
+  clip-path: circle(50% at 50% 50%);
+  background: #02060d;
+}
+.lens__glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.16), transparent 32%),
+    radial-gradient(closest-side, transparent 70%, rgba(0, 60, 140, 0.35) 94%, rgba(0, 20, 50, 0.7));
+  pointer-events: none;
+}
+.lens__rim {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 0 10px #0b0d11,
+    0 0 0 11.5px rgba(255, 255, 255, 0.18),
+    0 0 60px 16px rgba(0, 113, 227, 0.55),
+    inset 0 0 30px 6px rgba(0, 113, 227, 0.45);
+}
+.lens__ticks {
+  position: absolute;
+  inset: -40px;
+}
+.micro {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--bd-grey);
+  white-space: nowrap;
+}
+.magtext {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #fff;
+  white-space: nowrap;
+  transform-origin: 0 0;
+}
+.bignum {
+  position: absolute;
+  font-size: 150px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------------- binocular */
+.label {
+  position: absolute;
+  text-align: center;
+  width: 700px;
+}
+.label b {
+  display: block;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.label span {
+  display: block;
+  margin-top: 10px;
+  font-size: 25px;
+  color: var(--bd-grey);
+  letter-spacing: -0.005em;
+}
+
+/* ------------------------------------------------------------------ world */
+.earth {
+  position: absolute;
+  -webkit-mask-image: radial-gradient(ellipse 48% 44% at 50% 58%, #000 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 48% 44% at 50% 58%, #000 70%, transparent 100%);
+}
+.stats {
+  position: absolute;
+  display: flex;
+}
+.stat {
+  width: 330px;
+  text-align: center;
+  position: relative;
+}
+.stat + .stat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  height: 118px;
+  width: 1.5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.stat b {
+  display: block;
+  font-size: 108px;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+.stat span {
+  display: block;
+  margin-top: 6px;
+  font-size: 25px;
+  color: var(--bd-grey);
+}
+
+/* ------------------------------------------------------------------- mark */
+.cta {
+  position: absolute;
+  padding: 22px 50px;
+  border-radius: 999px;
+  background: var(--bd-blue);
+  color: #fff;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow: 0 0 40px rgba(0, 113, 227, 0.45);
+}
+.url {
+  position: absolute;
+  font-size: 22px;
+  color: var(--bd-grey);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}

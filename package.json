@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Grow Label — a 12-second motion reel built from the website's own design system. Deterministic HTML/SVG frames, true motion blur, procedural soundtrack, rendered to MP4.",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root) and Bryant Dental (bryant-dental/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -11,7 +11,11 @@
     "audio": "npm run cues && python3 scripts/audio.py out/cues.json out/soundtrack.wav",
     "frames": "node scripts/render.mjs --samples 16",
     "encode": "python3 scripts/encode.py out/frames out/soundtrack.wav out/grow-label-reel.mp4",
-    "build": "npm run audio && npm run frames && npm run encode"
+    "build": "npm run audio && npm run frames && npm run encode",
+    "bryant:audio": "node bryant-dental/scripts/cues.mjs > bryant-dental/out/cues.json && python3 bryant-dental/scripts/audio.py bryant-dental/out/cues.json bryant-dental/out/soundtrack.wav",
+    "bryant:frames": "node scripts/render.mjs --film bryant-dental --samples 16",
+    "bryant:encode": "python3 scripts/encode.py bryant-dental/out/frames bryant-dental/out/soundtrack.wav bryant-dental/out/bryant-dental-reel.mp4",
+    "bryant:build": "npm run bryant:audio && npm run bryant:frames && npm run bryant:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
