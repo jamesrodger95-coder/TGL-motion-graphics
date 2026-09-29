@@ -318,12 +318,12 @@ place(drum(46, 60, 0.4), T["seal"], gain=0.4)
 
 # The iris opens onto the navy world: a reverse swell into the origin's downbeat.
 place(whoosh(T["iris"][1] - T["iris"][0] + 0.1, 150, 6000, rise_only=True), T["iris"][0], gain=0.12)
-place(boom(2.4, 30, 70), T["origin"], gain=0.36, rev=0.4)
+place(boom(2.4, 30, 70), T["origin"], gain=0.5, rev=0.4)
 place(strings([hz(m) for m in (62, 66, 69, 73, 78)], 0.4, attack=0.01, release=1.4, bright=5000), T["origin"], gain=0.5, rev=0.5)
 
 # D. The origin beats like a heart; the routes fly and land in a rising pentatonic.
 for k in range(int((b(14.5) - T["origin"]) / 0.5)):
-    place(heart(), T["origin"] + 0.5 * k, gain=0.26 * (1 - 0.06 * k))
+    place(heart(), T["origin"] + 0.5 * k, gain=0.42 * (1 - 0.06 * k))
 penta = [74, 76, 78, 81, 83, 86, 88]
 for k, ta in enumerate(T["arcs"]):
     place(whoosh(0.5, 500, 4000, peak=0.5) * 0.5, ta, gain=0.05, pan=-0.5 if k != 3 and k != 6 else 0.5)
