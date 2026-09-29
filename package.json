@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/) and Everyone's Energy (everyones-energy/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/) and My Origin Report (my-origin-report/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -19,7 +19,11 @@
     "energy:audio": "node everyones-energy/scripts/cues.mjs > everyones-energy/out/cues.json && python3 everyones-energy/scripts/audio.py everyones-energy/out/cues.json everyones-energy/out/soundtrack.wav",
     "energy:frames": "node scripts/render.mjs --film everyones-energy --samples 16",
     "energy:encode": "GRAIN=3 python3 scripts/encode.py everyones-energy/out/frames everyones-energy/out/soundtrack.wav everyones-energy/out/everyones-energy-reel.mp4",
-    "energy:build": "npm run energy:audio && npm run energy:frames && npm run energy:encode"
+    "energy:build": "npm run energy:audio && npm run energy:frames && npm run energy:encode",
+    "origin:audio": "node my-origin-report/scripts/cues.mjs > my-origin-report/out/cues.json && python3 my-origin-report/scripts/audio.py my-origin-report/out/cues.json my-origin-report/out/soundtrack.wav",
+    "origin:frames": "node scripts/render.mjs --film my-origin-report --samples 16",
+    "origin:encode": "GRAIN=3 python3 scripts/encode.py my-origin-report/out/frames my-origin-report/out/soundtrack.wav my-origin-report/out/my-origin-report-reel.mp4",
+    "origin:build": "npm run origin:audio && npm run origin:frames && npm run origin:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
