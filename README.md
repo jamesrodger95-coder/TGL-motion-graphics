@@ -7,7 +7,7 @@ Four 1080p60 brand films, each rendered frame by frame from deterministic HTML/S
 | **Grow Label**, AI revenue operations for clinics | repository root                                   | [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4)                                               |
 | **Bryant Dental**, "Humanity, augmented."         | [`bryant-dental/`](bryant-dental/README.md)       | [`bryant-dental/out/bryant-dental-reel.mp4`](bryant-dental/out/bryant-dental-reel.mp4)             |
 | **Everyone's Energy**, one day of solar in 15 s   | [`everyones-energy/`](everyones-energy/README.md) | [`everyones-energy/out/everyones-energy-reel.mp4`](everyones-energy/out/everyones-energy-reel.mp4) |
-| **My Origin Report**, one surname's story in 12 s | [`my-origin-report/`](my-origin-report/README.md) | [`my-origin-report/out/my-origin-report-reel.mp4`](my-origin-report/out/my-origin-report-reel.mp4) |
+| **My Origin Report**, one surname's story in 24 s | [`my-origin-report/`](my-origin-report/README.md) | [`my-origin-report/out/my-origin-report-reel.mp4`](my-origin-report/out/my-origin-report-reel.mp4) |
 
 The renderer (`scripts/render.mjs`, `--film <folder>`), stills, preview and encoder are shared.
 

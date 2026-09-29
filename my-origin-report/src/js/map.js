@@ -52,7 +52,7 @@ export class MapShot {
     this.text = el('div', 'fill', textRoot);
     this.over = el('div', 'over', this.text, 'Surname origins');
     css(this.over, { left: '150px', top: '716px' });
-    this.title = typeset(this.text, ['O Suilleabhain'], {
+    this.title = typeset(this.text, ['Sullivan'], {
       cls: 'big cream',
       size: 124,
       x: 144,

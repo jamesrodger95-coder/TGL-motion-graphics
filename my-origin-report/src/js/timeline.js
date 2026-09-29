@@ -1,9 +1,13 @@
-// One surname's story in 12 seconds, cut to a 120 BPM grid: 24 beats, 6 bars.
+// One surname's story, cut to a 120 BPM grid of 24 beats. The cues below are
+// in story time (12 s); the film plays the story at half speed, so it runs
+// 24 s and every story beat lasts two beats of the 120 BPM soundtrack.
 // Every cue in the picture and the soundtrack reads from here.
 export const FPS = 60;
 export const BPM = 120;
-export const BEAT = 60 / BPM; // 0.5 s
-export const DURATION = 24 * BEAT; // 12.0 s
+export const BEAT = 60 / BPM; // 0.5 s of story time
+export const STORY = 24 * BEAT; // 12.0 s of story time
+export const SLOW = 2; // real seconds per story second
+export const DURATION = STORY * SLOW; // 24.0 s: the film's length
 export const b = (n) => n * BEAT;
 
 export const T = {

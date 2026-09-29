@@ -1,6 +1,6 @@
 // Composes the film. window.renderFrame(t) must put the stage into the exact
 // state for time t from any previous state: nothing reads the wall clock.
-import { T, DURATION } from './timeline.js';
+import { T, DURATION, STORY, SLOW } from './timeline.js';
 import { css, el, prog, K } from './kit.js';
 import { Doc } from './doc.js';
 import { MapShot } from './map.js';
@@ -12,7 +12,7 @@ const $ = (id) => document.getElementById(id);
 async function boot() {
   await Promise.all([
     document.fonts.load('700 64px "Cormorant Garamond"', 'Explore Sullivan 1500s'),
-    document.fonts.load('italic 600 64px "Cormorant Garamond"', 'O Suilleabhain'),
+    document.fonts.load('italic 600 64px "Cormorant Garamond"', 'Sullivan descendant'),
     document.fonts.load('700 32px "Plus Jakarta Sans"', 'Get My Report - $15'),
     document.fonts.load('400 32px "Plus Jakarta Sans"', 'Researching'),
   ]);
@@ -35,8 +35,9 @@ async function boot() {
   const dust = new Dust($('dust'));
   const end = new End($('end'));
 
-  window.renderFrame = (t) => {
-    t = Math.max(0, Math.min(DURATION - 1e-6, t));
+  // The film plays the story at half speed: real time t shows story time t / SLOW.
+  window.renderFrame = (real) => {
+    const t = Math.max(0, Math.min(STORY - 1e-6, real / SLOW));
     doc.update(t);
     map.update(t, prog(t, T.toPage[0], T.toPage[0] + 0.3));
     report.update(t);

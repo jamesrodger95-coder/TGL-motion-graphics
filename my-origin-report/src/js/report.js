@@ -10,7 +10,7 @@ const PAGES = [
   [
     'Surname Origins',
     [
-      'The surname Sullivan derives from the Gaelic “O Suilleabhain,” meaning “descendant of the dark-eyed one.” First recorded in County Cork, Ireland during the 10th century, the O’Sullivans were part of the Eoganacht Mor dynasty.',
+      'The surname Sullivan derives from the Gaelic for “descendant of the dark-eyed one.” First recorded in County Cork, Ireland during the 10th century, the O’Sullivans were part of the Eoganacht Mor dynasty.',
       'This powerful Munster ruling family controlled vast territories across what is now County Kerry and West Cork.',
     ],
   ],

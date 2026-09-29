@@ -1,6 +1,6 @@
-# My Origin Report — 12-second motion reel
+# My Origin Report — 24-second motion reel
 
-**Film:** [`out/my-origin-report-reel.mp4`](out/my-origin-report-reel.mp4) · 1920×1080 · 60 fps · 12.0 s · stereo AAC  
+**Film:** [`out/my-origin-report-reel.mp4`](out/my-origin-report-reel.mp4) · 1920×1080 · 60 fps · 24.0 s · stereo AAC  
 **Poster:** [`out/my-origin-report-reel-poster.png`](out/my-origin-report-reel-poster.png)
 
 A showreel-grade brand film for My Origin Report, built from the live site,
@@ -14,16 +14,19 @@ The site sells one thing: the story behind a surname, from nothing but the
 name. So the film follows one surname, Sullivan (the site's sample report),
 from the moment it is typed to the finished report. It ends on the site's own
 hero animation, where a DNA helix turns into the My Origin Report mark: _No DNA
-sample. Just your surname._ It is cut to a 120 BPM grid (24 beats).
+sample. Just your surname._ The story is cut to a 24-beat grid and played at
+half speed (`SLOW = 2` in `src/js/timeline.js`), so every move has room to
+breathe. The score runs at 120 BPM, so each picture beat spans two beats of
+music and every cue still lands on the grid.
 
-| Time       | Shot              | What happens                                                                                                                                                                                                                                                                                                                                  |
-| ---------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0.0 – 2.5  | **The name**      | The site's hero line, _Explore the History Behind_, with its gold _Your Surname_ slot. The slot rolls through the names the site's input cycles (Smith, Patel, O'Brien, Garcia, Nguyen) on sixteenths and lands on _Sullivan_ with a gold pen stroke. The name drops into the site's input, and a pointer clicks **Get My Report - $15**.     |
-| 2.5 – 3.3  | **Researching**   | The input grows into the site's "See It In Action" demo: its tabs (✓ Enter Surname · 2. Researching · 3. Your Report), _Researching heritage for "Sullivan"..._ and its gold progress bar.                                                                                                                                                    |
-| 3.1 – 5.5  | **The centuries** | The page tips back in 3D into the site's "What We Research" timeline. The camera runs down it through the site's six record collections (1500s Parish & Church Records to Present), faster as it nears the present. Its nodes pop and ring as on the site, and it lands flat on the timeline's seal.                                          |
-| 5.1 – 7.3  | **The origin**    | The seal opens as an iris onto a navy world: the site's own world outline, traced in gold and revealed outward from County Cork. The origin (_O Suilleabhain, "descendant of the dark-eyed one"_, first recorded in County Cork) beats like a heart. Routes arc to Boston, New York, Philadelphia, London, Chicago, San Francisco and Sydney. |
-| 7.3 – 9.3  | **The report**    | The map shrinks into page 2 of the site's _Illustrative Report Preview_. Its five pages fan out, then gather under a cover with the site's decorative heraldic art rising on it.                                                                                                                                                              |
-| 9.3 – 12.0 | **The mark**      | The report turns to dust, the dust becomes the site's particle DNA helix (_No DNA sample._ / _Just your surname._), and the helix flies into the logo exactly as it does on the site. Then _My Origin Report_, _It's time you knew their story._ and **Get My Report - $15**.                                                                 |
+| Time        | Shot              | What happens                                                                                                                                                                                                                                                                                                                              |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 – 5       | **The name**      | The site's hero line, _Explore the History Behind_, with its gold _Your Surname_ slot. The slot rolls through the names the site's input cycles (Smith, Patel, O'Brien, Garcia, Nguyen) on sixteenths and lands on _Sullivan_ with a gold pen stroke. The name drops into the site's input, and a pointer clicks **Get My Report - $15**. |
+| 5 – 6.6     | **Researching**   | The input grows into the site's "See It In Action" demo: its tabs (✓ Enter Surname · 2. Researching · 3. Your Report), _Researching heritage for "Sullivan"..._ and its gold progress bar.                                                                                                                                                |
+| 6.2 – 11    | **The centuries** | The page tips back in 3D into the site's "What We Research" timeline. The camera runs down it through the site's six record collections (1500s Parish & Church Records to Present), faster as it nears the present. Its nodes pop and ring as on the site, and it lands flat on the timeline's seal.                                      |
+| 10.2 – 14.6 | **The origin**    | The seal opens as an iris onto a navy world: the site's own world outline, traced in gold and revealed outward from County Cork. The origin (_Sullivan, "descendant of the dark-eyed one"_, first recorded in County Cork) beats like a heart. Routes arc to Boston, New York, Philadelphia, London, Chicago, San Francisco and Sydney.   |
+| 14.6 – 18.6 | **The report**    | The map shrinks into page 2 of the site's _Illustrative Report Preview_. Its five pages fan out, then gather under a cover with the site's decorative heraldic art rising on it.                                                                                                                                                          |
+| 18.6 – 24   | **The mark**      | The report turns to dust, the dust becomes the site's particle DNA helix (_No DNA sample._ / _Just your surname._), and the helix flies into the logo exactly as it does on the site. Then _My Origin Report_, _It's time you knew their story._ and **Get My Report - $15**.                                                             |
 
 ## What comes from the site
 
@@ -49,6 +52,7 @@ sample. Just your surname._ It is cut to a 120 BPM grid (24 beats).
   License, in `src/fonts/`), parchment #FDFBF7, navy #1A2744, the gold ramp,
   and the logo mark (`src/brand/logo-mark.svg`, the site's nav SVG).
 - **Copy.** Every line is the site's own, including its sample Sullivan report
+  (page 1 names the Gaelic original by its meaning rather than its spelling)
   and its labels "Illustrative Report Preview", "Illustrative surname-history
   preview" and "Decorative heraldic art". The routes follow that sample
   report's migration text. Like the site, the film shows them as a surname's
@@ -67,7 +71,7 @@ From the repository root (Node 20+, Python 3.11+, Chromium via Playwright):
 
 ```bash
 npm run origin:build                                 # soundtrack -> frames -> MP4
-npm run stills -- --film my-origin-report 1.6 11.9   # review frames
+npm run stills -- --film my-origin-report 3.2 23.8   # review frames (real seconds)
 npm run preview -- --film my-origin-report           # live preview in a browser
 ```
 

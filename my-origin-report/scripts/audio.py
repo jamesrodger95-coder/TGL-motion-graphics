@@ -1,4 +1,5 @@
-"""Procedural soundtrack for the My Origin Report reel.
+"""Procedural soundtrack for the My Origin Report reel (24 s: the story at half
+speed, scored at 120 BPM so each picture beat spans two beats of music).
 
 Every sound is synthesised (no samples) and placed from the film's own cue
 sheet (scripts/cues.mjs), so each hit lands on its frame. A warm heritage cue
@@ -24,6 +25,7 @@ rng = np.random.default_rng(1897)  # the site's particle seed
 cues = json.load(open(sys.argv[1]))
 OUT = sys.argv[2]
 DUR, BEAT, T, EV = cues["DURATION"], cues["BEAT"], cues["T"], cues["events"]
+MUSIC = cues["MUSIC"]  # one beat of the 120 BPM score (the picture's beat is BEAT)
 N = int(SR * DUR)
 dry = np.zeros((2, N))
 send = np.zeros((2, N))
@@ -268,14 +270,15 @@ pad_bus = np.stack([hp(pad_bus[c], 90) for c in range(2)]) * duck
 dry += pad_bus * 0.2
 send += pad_bus * 0.09
 
-# A harp that walks the chords in eighths, carrying the film.
-for k, n in enumerate(np.arange(0.5, 24, 0.5)):
-    t0 = b(n)
+# A harp that walks the chords in eighths of the 120 BPM score, carrying the film.
+for k, n in enumerate(np.arange(1, DUR / MUSIC * 2)):
+    t0 = n * MUSIC / 2
     if b(18.5) <= t0 < b(20.5):
         continue  # the dust has its own voice
     notes = chord_at(t0 + 0.001)[1:]
     m = notes[[0, 2, 1, 3, 2, 4, 3, 5][k % 8] % len(notes)] + 12
-    place(harp(hz(m), 1.2, 0.8), t0, gain=0.05 if n < 6.5 else 0.06, pan=0.35 * np.sin(k * 1.1), rev=0.35)
+    accent = 1.0 if k % 2 == 1 else 0.72  # lean on the beat, lighter off it
+    place(harp(hz(m), 1.2, 0.8), t0, gain=(0.05 if t0 < b(6.5) else 0.06) * accent, pan=0.35 * np.sin(k * 1.1), rev=0.35)
 
 # ------------------------------------------------------------ sound design
 # A. The name: a breath in, the reel ticks, "Sullivan" lands; typed; clicked.
@@ -322,8 +325,9 @@ place(boom(2.4, 30, 70), T["origin"], gain=0.5, rev=0.4)
 place(strings([hz(m) for m in (62, 66, 69, 73, 78)], 0.4, attack=0.01, release=1.4, bright=5000), T["origin"], gain=0.5, rev=0.5)
 
 # D. The origin beats like a heart; the routes fly and land in a rising pentatonic.
-for k in range(int((b(14.5) - T["origin"]) / 0.5)):
-    place(heart(), T["origin"] + 0.5 * k, gain=0.42 * (1 - 0.06 * k))
+# One lub-dub per picture beat (60 per minute), in step with the pulse rings on the map.
+for k in range(int((b(14.5) - T["origin"]) / BEAT)):
+    place(heart(), T["origin"] + BEAT * k, gain=0.42 * (1 - 0.06 * k))
 penta = [74, 76, 78, 81, 83, 86, 88]
 for k, ta in enumerate(T["arcs"]):
     place(whoosh(0.5, 500, 4000, peak=0.5) * 0.5, ta, gain=0.05, pan=-0.5 if k != 3 and k != 6 else 0.5)
@@ -373,7 +377,7 @@ mix = mix / np.abs(mix).max()
 mix = np.tanh(mix * 1.15) / np.tanh(1.15)
 env = np.ones(N)
 env[: int(0.01 * SR)] = np.linspace(0, 1, int(0.01 * SR))
-env[N - int(0.7 * SR) :] = np.linspace(1, 0, int(0.7 * SR)) ** 1.4
+env[N - int(1.2 * SR) :] = np.linspace(1, 0, int(1.2 * SR)) ** 1.4
 mix *= env * 10 ** (-1.2 / 20)
 pcm = (np.clip(mix.T, -1, 1) * 32767).astype("<i2")
 with wave.open(OUT, "wb") as wv:
