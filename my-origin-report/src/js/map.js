@@ -4,6 +4,7 @@
 // Sullivan report says the name travelled.
 import { css, el, prog, lerp, clamp, K, keys, typeset } from './kit.js';
 import { T, b } from './timeline.js';
+import { W, H, MX, MY, fit } from './layout.js';
 
 // Places, in the outline's own coordinates (its 7400x4230 viewBox, halved).
 export const CORK = [1643, 840];
@@ -17,30 +18,51 @@ export const CITIES = [
   ['Sydney', [3100, 1690], [16, 10], 'left'],
 ];
 
+// The tall frame sees 9/16 as much map across, so it pulls out further to show
+// the same routes, and lands on the same 16:9 view for the report's picture.
+const SHOTS = fit(
+  [
+    [1610, 850, 2.45],
+    [1380, 905, 1.55],
+    [1520, 1010, 0.92],
+    [1850, 1150, 0.64],
+    [1850, 1150, 0.6],
+  ],
+  [
+    [1600, 860, 2.2],
+    [1380, 915, 1.0],
+    [1540, 1020, 0.54],
+    [1850, 1150, 0.36],
+    [1850, 1150, 0.3375],
+  ]
+);
 export function mapCamera(t) {
   return keys(
     [
       [T.iris[0], [CORK[0], CORK[1], 3.0]],
-      [b(12.1), [1610, 850, 2.45], (x) => x],
-      [b(13.1), [1380, 905, 1.55], K.inOut],
-      [b(14), [1520, 1010, 0.92], K.inOut],
-      [T.toPage[0], [1850, 1150, 0.64], K.inOut],
-      [T.toPage[1], [1850, 1150, 0.6], (x) => x],
+      [b(12.1), SHOTS[0], (x) => x],
+      [b(13.1), SHOTS[1], K.inOut],
+      [b(14), SHOTS[2], K.inOut],
+      [T.toPage[0], SHOTS[3], K.inOut],
+      [T.toPage[1], SHOTS[4], (x) => x],
     ],
     t
   );
 }
 
+// The origin text: bottom left, clear of the routes; in the tall frame, the lower third.
+const TEXT = fit({ x: 144, y: 716 }, { x: 96, y: 1176 });
+
 export class MapShot {
   constructor(view, textRoot) {
     this.view = view;
     this.lines = el('canvas', 'abs', view);
-    this.lines.width = 1920;
-    this.lines.height = 1080;
+    this.lines.width = W;
+    this.lines.height = H;
     this.lg = this.lines.getContext('2d');
     this.canvas = el('canvas', 'abs', view);
-    this.canvas.width = 1920;
-    this.canvas.height = 1080;
+    this.canvas.width = W;
+    this.canvas.height = H;
     this.ctx = this.canvas.getContext('2d');
     this.labels = CITIES.map(([name, , off, align]) => {
       const d = el('div', 'city', view, name);
@@ -51,19 +73,19 @@ export class MapShot {
     // The name's origin, from page 1 of the Sullivan report.
     this.text = el('div', 'fill', textRoot);
     this.over = el('div', 'over', this.text, 'Surname origins');
-    css(this.over, { left: '150px', top: '716px' });
+    css(this.over, { left: `${TEXT.x + 6}px`, top: `${TEXT.y}px` });
     this.title = typeset(this.text, ['Sullivan'], {
       cls: 'big cream',
       size: 124,
-      x: 144,
-      y: 756,
+      x: TEXT.x,
+      y: TEXT.y + 40,
       lh: 1.05,
     });
     css(this.title.root, { fontStyle: 'italic', fontWeight: '600' });
     this.quote = el('div', 'big', this.text, '“descendant of the dark-eyed one”');
     css(this.quote, {
-      left: '152px',
-      top: '900px',
+      left: `${TEXT.x + 8}px`,
+      top: `${TEXT.y + 184}px`,
       fontSize: '50px',
       fontStyle: 'italic',
       fontWeight: '500',
@@ -71,8 +93,8 @@ export class MapShot {
     });
     this.first = el('div', 'abs', this.text, 'First recorded in County Cork, Ireland');
     css(this.first, {
-      left: '154px',
-      top: '972px',
+      left: `${TEXT.x + 10}px`,
+      top: `${TEXT.y + 256}px`,
       fontSize: '26px',
       color: 'rgba(245,237,224,0.7)',
       whiteSpace: 'nowrap',
@@ -96,20 +118,20 @@ export class MapShot {
     if (!on) return;
     const [fx, fy, z] = mapCamera(t);
     this.cam = { fx, fy, z };
-    const M = (p) => [(p[0] - fx) * z + 960, (p[1] - fy) * z + 540];
+    const M = (p) => [(p[0] - fx) * z + MX, (p[1] - fy) * z + MY];
 
     // The outline, revealed outward from Cork: draw only the visible part of
     // the traced map, tint it gold, then cut the reveal with a radial gradient.
     const R = lerp(60, 4200, K.inOut(prog(t, T.origin - 0.2, b(14))));
     const lg = this.lg;
     lg.globalCompositeOperation = 'source-over';
-    lg.clearRect(0, 0, 1920, 1080);
-    const x0 = fx - 960 / z,
-      y0 = fy - 540 / z; // map units at the frame's top left
+    lg.clearRect(0, 0, W, H);
+    const x0 = fx - MX / z,
+      y0 = fy - MY / z; // map units at the frame's top left
     const sx = Math.max(0, x0),
       sy = Math.max(0, y0);
-    const ex = Math.min(3700, fx + 960 / z),
-      ey = Math.min(2115, fy + 540 / z);
+    const ex = Math.min(3700, fx + MX / z),
+      ey = Math.min(2115, fy + MY / z);
     if (ex > sx && ey > sy) {
       lg.imageSmoothingQuality = 'high';
       lg.drawImage(
@@ -126,18 +148,18 @@ export class MapShot {
     }
     lg.globalCompositeOperation = 'source-in';
     lg.fillStyle = '#c9973f';
-    lg.fillRect(0, 0, 1920, 1080);
+    lg.fillRect(0, 0, W, H);
     lg.globalCompositeOperation = 'destination-in';
     const [rcx, rcy] = M(CORK);
     const rg = lg.createRadialGradient(rcx, rcy, R * z, rcx, rcy, (R + 520) * z);
     rg.addColorStop(0, 'rgba(0,0,0,0.62)');
     rg.addColorStop(1, 'rgba(0,0,0,0)');
     lg.fillStyle = rg;
-    lg.fillRect(0, 0, 1920, 1080);
+    lg.fillRect(0, 0, W, H);
     lg.globalCompositeOperation = 'source-over';
 
     const g = this.ctx;
-    g.clearRect(0, 0, 1920, 1080);
+    g.clearRect(0, 0, W, H);
     const [cx, cy] = M(CORK);
     const dz = Math.min(1.6, Math.sqrt(z));
 

@@ -23,6 +23,9 @@ const TYPES = {
   '.ttf': 'font/ttf',
 };
 
+/** Frame sizes by format. A film that supports 9:16 reads ?format=9x16 and composes for it. */
+export const FORMATS = { '16x9': [1920, 1080], '9x16': [1080, 1920] };
+
 /** Films live at the repo root (Grow Label) or in their own folder (e.g. bryant-dental). */
 export const filmDir = (film = '.') => (film === '.' ? '' : `${film.replace(/\/$/, '')}/`);
 
@@ -46,7 +49,8 @@ export function serve(port = 0) {
   });
 }
 
-export async function openStage(server, { scale = 1, film = '.' } = {}) {
+export async function openStage(server, { scale = 1, film = '.', format = '16x9' } = {}) {
+  const [width, height] = FORMATS[format];
   const browser = await chromium.launch({
     executablePath: process.env.CHROMIUM_PATH || undefined,
     args: [
@@ -57,12 +61,15 @@ export async function openStage(server, { scale = 1, film = '.' } = {}) {
     ],
   });
   const page = await browser.newPage({
-    viewport: { width: 1920, height: 1080 },
+    viewport: { width, height },
     deviceScaleFactor: scale,
   });
   page.on('pageerror', (e) => console.error('[page]', e.message));
   page.on('console', (m) => m.type() === 'error' && console.error('[console]', m.text()));
-  await page.goto(`http://127.0.0.1:${server.address().port}/${filmDir(film)}src/index.html`);
+  const query = format === '16x9' ? '' : `?format=${format}`;
+  await page.goto(
+    `http://127.0.0.1:${server.address().port}/${filmDir(film)}src/index.html${query}`
+  );
   await page.waitForFunction(() => window.__ready === true, null, { timeout: 120000 });
   return { browser, page };
 }

@@ -23,7 +23,10 @@
     "origin:audio": "node my-origin-report/scripts/cues.mjs > my-origin-report/out/cues.json && python3 my-origin-report/scripts/audio.py my-origin-report/out/cues.json my-origin-report/out/soundtrack.wav",
     "origin:frames": "node scripts/render.mjs --film my-origin-report --samples 16",
     "origin:encode": "GRAIN=3 python3 scripts/encode.py my-origin-report/out/frames my-origin-report/out/soundtrack.wav my-origin-report/out/my-origin-report-reel.mp4",
-    "origin:build": "npm run origin:audio && npm run origin:frames && npm run origin:encode"
+    "origin:build": "npm run origin:audio && npm run origin:frames && npm run origin:encode",
+    "origin:frames:9x16": "node scripts/render.mjs --film my-origin-report --format 9x16 --samples 16",
+    "origin:encode:9x16": "GRAIN=3 python3 scripts/encode.py my-origin-report/out/frames-9x16 my-origin-report/out/soundtrack.wav my-origin-report/out/my-origin-report-reel-9x16.mp4",
+    "origin:build:9x16": "npm run origin:audio && npm run origin:frames:9x16 && npm run origin:encode:9x16"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",

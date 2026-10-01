@@ -11,5 +11,6 @@ everyones-energy/out/frames/
 everyones-energy/out/cues.json
 everyones-energy/out/render*.log
 my-origin-report/out/frames/
+my-origin-report/out/frames-9x16/
 my-origin-report/out/cues.json
 my-origin-report/out/render*.log

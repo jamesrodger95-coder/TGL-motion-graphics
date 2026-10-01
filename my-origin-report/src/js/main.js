@@ -2,6 +2,7 @@
 // state for time t from any previous state: nothing reads the wall clock.
 import { T, DURATION, STORY, SLOW } from './timeline.js';
 import { css, el, prog, K } from './kit.js';
+import { VERTICAL, W, H, MX, MY, fit } from './layout.js';
 import { Doc } from './doc.js';
 import { MapShot } from './map.js';
 import { Report } from './report.js';
@@ -18,10 +19,23 @@ async function boot() {
   ]);
   await document.fonts.ready;
 
+  // The frame: 16:9, or 9:16 for the vertical cut.
+  const stage = $('stage');
+  stage.classList.toggle('v', VERTICAL);
+  css(stage, { width: `${W}px`, height: `${H}px` });
+  for (const c of [$('dust'), $('fx')]) Object.assign(c, { width: W, height: H });
+
   // The parchment: the site's colours, its paper texture and its 5% map.
   const paper = $('paper');
   const mapbg = el('div', 'mapbg', paper);
-  css(mapbg, { left: '-80px', top: '-60px', width: '2080px', height: '1190px', opacity: '0.045' });
+  const [bx, by, bw, bh] = fit([-80, -60, 2080, 1190], [-60, -80, 1200, 2080]);
+  css(mapbg, {
+    left: `${bx}px`,
+    top: `${by}px`,
+    width: `${bw}px`,
+    height: `${bh}px`,
+    opacity: '0.045',
+  });
   el('div', 'grain', paper);
 
   const doc = new Doc($('doc3d'));
@@ -45,7 +59,7 @@ async function boot() {
     end.update(t);
     // The iris: the navy world opens from the timeline's seal.
     const ir = K.inExpo(prog(t, T.iris[0], T.iris[1])) ** 0.85;
-    const [sx, sy] = t < T.iris[1] ? doc.project(960, doc.sealY) : [960, 540];
+    const [sx, sy] = t < T.iris[1] ? doc.project(MX, doc.sealY) : [MX, MY];
     css(night, {
       visibility: ir > 0 ? 'visible' : 'hidden',
       clipPath:
@@ -54,7 +68,7 @@ async function boot() {
           : `circle(${(ir * 1250).toFixed(2)}px at ${sx.toFixed(1)}px ${sy.toFixed(1)}px)`,
     });
     // A gold ring rides the iris's edge (the seal's own border, opening).
-    fx.clearRect(0, 0, 1920, 1080);
+    fx.clearRect(0, 0, W, H);
     if (ir > 0 && ir < 1) {
       const R = ir * 1250;
       fx.strokeStyle = `rgba(201,151,63,${(0.9 * (1 - ir) ** 0.6).toFixed(3)})`;
@@ -64,7 +78,7 @@ async function boot() {
       fx.stroke();
     }
     // The map texture drifts a little with the scroll, and gently scales so it never runs out.
-    const drift = Math.min(1, (doc.scroll - 540) / 4200);
+    const drift = Math.min(1, (doc.scroll - MY) / 4200);
     css(mapbg, {
       transform: `translate3d(0,${(-drift * 90).toFixed(2)}px,0) scale(${(1 + drift * 0.1).toFixed(4)})`,
     });

@@ -5,6 +5,7 @@
 // centuries, then lands flat on the timeline's seal.
 import { css, el, prog, lerp, clamp, K, bezier, mix, keys } from './kit.js';
 import { T, b } from './timeline.js';
+import { W, MX, MY, VERTICAL, fit } from './layout.js';
 
 // The site's own motion curves (its stylesheet).
 export const SITE = {
@@ -14,9 +15,14 @@ export const SITE = {
 };
 
 const NAMES = ['Your Surname', 'Smith', 'Patel', "O'Brien", 'Garcia', 'Nguyen', 'Sullivan'];
-const HEAD = 118; // headline size
+const HEAD = fit(118, 128); // headline size
 const LH = 1.1;
 const STEP = 1.7; // reel pitch, in em
+// The hero line: one line wide, two in the tall frame (as the site sets it on a phone).
+const LINES = fit(['Explore the History Behind'], ['Explore the', 'History Behind']);
+const TOP = fit(318, 608); // the first line's top
+const SLOT_TOP = TOP + LINES.length * HEAD * LH; // the gold surname slot, centred in the tall frame
+const US = HEAD / 118; // the pen stroke's scale
 
 // "What We Research", verbatim, with the site's inline icons.
 const RESEARCH = [
@@ -69,9 +75,10 @@ const ICONS = {
 const icon = (k) =>
   `<svg viewBox="0 0 24 24" fill="none" stroke="#C4960C" stroke-width="1.5" stroke-linecap="round">${ICONS[k]}</svg>`;
 
-export const NODE_Y = RESEARCH.map((_, k) => 1180 + k * 600);
-export const SEAL_Y = 1180 + 6 * 600;
-const LINE_TOP = 790;
+const LINE_TOP = fit(790, 1210); // just under the demo card
+export const NODE_Y = RESEARCH.map((_, k) => LINE_TOP + 390 + k * 600);
+export const SEAL_Y = LINE_TOP + 390 + 6 * 600;
+const BODY_W = fit(640, 400); // a record's text column
 
 // Monotone cubic (Fritsch–Carlson) through [t, v] keys: smooth, no overshoot.
 function monotone(pts) {
@@ -113,8 +120,8 @@ function monotone(pts) {
 
 // The camera down the plane: the doc y held at the screen centre, and the tilt.
 const scrollAt = monotone([
-  [0, 540],
-  [T.tilt[0], 540],
+  [0, MY],
+  [T.tilt[0], MY],
   [T.nodes[0], NODE_Y[0] + 30],
   ...T.nodes.slice(1).map((t, k) => [t, NODE_Y[k + 1] + 30]),
   [T.seal - 0.05, SEAL_Y - 6],
@@ -135,27 +142,31 @@ export class Doc {
   constructor(root) {
     this.root = root;
     const doc = (this.doc = root.querySelector('#doc'));
+    css(root, { perspectiveOrigin: `${MX}px ${MY}px` });
+    css(doc, { width: `${W}px`, height: `${SEAL_Y + 420}px` });
 
     // ---------------------------------------------------------------- A
-    this.line1 = el('div', 'h1', doc);
-    css(this.line1, {
-      fontSize: `${HEAD}px`,
-      left: '960px',
-      top: '318px',
-      transform: 'translateX(-50%)',
-    });
-    const m1 = el('span', 'mask', this.line1);
-    this.words1 = 'Explore the History Behind'.split(' ').map((w, i, a) => {
-      const s = el('span', 'w', m1, w);
-      if (i < a.length - 1) m1.appendChild(document.createTextNode(' '));
-      return s;
+    this.words1 = LINES.flatMap((text, r) => {
+      const line = el('div', 'h1', doc);
+      css(line, {
+        fontSize: `${HEAD}px`,
+        left: `${MX}px`,
+        top: `${TOP + r * HEAD * LH}px`,
+        transform: 'translateX(-50%)',
+      });
+      const m = el('span', 'mask', line);
+      return text.split(' ').map((w, i, a) => {
+        const s = el('span', 'w', m, w);
+        if (i < a.length - 1) m.appendChild(document.createTextNode(' '));
+        return s;
+      });
     });
     this.slot = el('div', 'h1', doc);
     css(this.slot, {
       fontSize: `${HEAD}px`,
       left: '0px',
-      width: '1920px',
-      top: `${318 + HEAD * LH}px`,
+      width: `${W}px`,
+      top: `${SLOT_TOP}px`,
     });
     this.slotMask = el('div', '', this.slot);
     css(this.slotMask, { height: `${LH}em`, overflow: 'hidden' });
@@ -170,7 +181,7 @@ export class Doc {
     // A gold pen stroke under the name when it lands.
     this.under = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.under.setAttribute('class', 'abs');
-    this.under.setAttribute('width', 1920);
+    this.under.setAttribute('width', W);
     this.under.setAttribute('height', 60);
     this.under.innerHTML =
       '<path d="M0 30 C 120 18, 260 40, 400 26 S 560 20, 600 28" fill="none" stroke="#c9973f" stroke-width="7" stroke-linecap="round"/>';
@@ -225,28 +236,28 @@ export class Doc {
     // ---------------------------------------------------------------- C
     this.track = el('div', 'track', doc);
     this.route = el('div', 'route', doc);
-    css(this.track, { left: '960px', top: `${LINE_TOP}px`, height: `${SEAL_Y - LINE_TOP}px` });
-    css(this.route, { left: '960px', top: `${LINE_TOP}px`, height: `${SEAL_Y - LINE_TOP}px` });
+    css(this.track, { left: `${MX}px`, top: `${LINE_TOP}px`, height: `${SEAL_Y - LINE_TOP}px` });
+    css(this.route, { left: `${MX}px`, top: `${LINE_TOP}px`, height: `${SEAL_Y - LINE_TOP}px` });
     this.items = RESEARCH.map(([year, title, desc, ic], k) => {
       const y = NODE_Y[k];
       const left = k % 2 === 0; // body on the left, year on the right (the site's order)
       const node = el('div', 'node', doc, `<span>${icon(ic)}</span>`);
-      css(node, { left: '960px', top: `${y}px` });
+      css(node, { left: `${MX}px`, top: `${y}px` });
       const ring = el('div', 'ring', node);
       const yr = el('div', 'year', doc, year);
       const body = el('div', 'tbody', doc, `<h3>${title}</h3><p>${desc}</p>`);
       css(yr, { top: `${y - 70}px` });
       if (left) {
-        css(yr, { left: `${960 + 96}px` });
-        css(body, { left: `${960 - 96 - 640}px`, top: `${y - 38}px`, textAlign: 'right' });
+        css(yr, { left: `${MX + 96}px` });
+        css(body, { left: `${MX - 96 - BODY_W}px`, top: `${y - 38}px`, textAlign: 'right' });
       } else {
-        css(yr, { right: `${1920 - 960 + 96}px` });
-        css(body, { left: `${960 + 96}px`, top: `${y - 38}px` });
+        css(yr, { right: `${W - MX + 96}px` });
+        css(body, { left: `${MX + 96}px`, top: `${y - 38}px` });
       }
       return { node, ring, yr, body, icon: node.querySelector('span') };
     });
     this.seal = el('div', 'node', doc);
-    css(this.seal, { left: '960px', top: `${SEAL_Y}px` });
+    css(this.seal, { left: `${MX}px`, top: `${SEAL_Y}px` });
     this.sealDot = el('div', 'abs', this.seal);
     css(this.sealDot, {
       left: '30px',
@@ -270,16 +281,31 @@ export class Doc {
     const w = r.getBoundingClientRect().width;
     this.sullW = w;
     const btnW = this.btn.getBoundingClientRect().width;
-    const inputW = 700,
-      gap = 28;
-    const x0 = 960 - (inputW + gap + btnW) / 2;
-    this.input = { x: x0, y: 490, w: inputW, h: 104 };
-    this.btnAt = { x: x0 + inputW + gap, y: 490, w: btnW };
-    this.card = { x: 360, y: 300, w: 1200, h: 480 };
+    if (VERTICAL) {
+      // The site's form as it stacks on a phone: the input, the button under it.
+      // Its label starts where the hero's second line ends.
+      const inputW = 840,
+        y = 934;
+      this.input = { x: MX - inputW / 2, y, w: inputW, h: 104 };
+      this.btnAt = { x: MX - btnW / 2, y: y + 104 + 36, w: btnW };
+      this.card = { x: 80, y: 720, w: 920, h: 480 };
+    } else {
+      const inputW = 700,
+        gap = 28;
+      const x0 = MX - (inputW + gap + btnW) / 2;
+      this.input = { x: x0, y: 490, w: inputW, h: 104 };
+      this.btnAt = { x: x0 + inputW + gap, y: 490, w: btnW };
+      this.card = { x: 360, y: 300, w: 1200, h: 480 };
+    }
     const fs = 56;
-    this.textFrom = { x: 960 - w / 2, y: 318 + HEAD * LH + (HEAD * LH) / 2, s: 1 };
-    this.textTo = { x: x0 + 40, y: 490 + 52, s: fs / HEAD };
-    css(this.under, { left: `${960 - 300}px`, top: `${318 + HEAD * LH * 1.86}px`, width: '600px' });
+    this.textFrom = { x: MX - w / 2, y: SLOT_TOP + (HEAD * LH) / 2, s: 1 };
+    this.textTo = { x: this.input.x + 40, y: this.input.y + 52, s: fs / HEAD };
+    css(this.under, {
+      left: `${MX - 300 * US}px`,
+      top: `${SLOT_TOP + HEAD * LH * 0.86}px`,
+      width: `${600 * US}px`,
+      height: `${60 * US}px`,
+    });
     this.under.setAttribute('viewBox', '0 0 600 60');
   }
 
@@ -293,8 +319,8 @@ export class Doc {
     this.scroll = s;
     this.tilt = th;
     css(doc, {
-      transformOrigin: `960px ${s.toFixed(2)}px`,
-      transform: `translate3d(0,${(540 - s).toFixed(2)}px,0) rotateX(${th.toFixed(3)}deg)`,
+      transformOrigin: `${MX}px ${s.toFixed(2)}px`,
+      transform: `translate3d(0,${(MY - s).toFixed(2)}px,0) rotateX(${th.toFixed(3)}deg)`,
     });
 
     // ------------------------------------------------ A: the line and the reel
@@ -426,8 +452,9 @@ export class Doc {
       opacity: rp > 0 && rp < 1 ? (0.9 * (1 - rp)).toFixed(3) : '0',
     });
     const pm = K.inOut(prog(t, T.button + 0.2, T.press - 0.04));
-    const px = lerp(1720, this.btnAt.x + this.btnAt.w * 0.62, pm),
-      py = lerp(860, this.btnAt.y + 52, pm) + Math.sin(pm * Math.PI) * -40;
+    const [p0x, p0y] = fit([1720, 860], [930, 1420]); // the pointer enters from the lower right
+    const px = lerp(p0x, this.btnAt.x + this.btnAt.w * 0.62, pm),
+      py = lerp(p0y, this.btnAt.y + 52, pm) + Math.sin(pm * Math.PI) * -40;
     const pOut = prog(t, T.press + 0.3, T.press + 0.55);
     css(this.pointer, {
       transform: `translate3d(${px.toFixed(2)}px,${py.toFixed(2)}px,0) scale(${(1 - 0.12 * press).toFixed(4)})`,
@@ -468,7 +495,8 @@ export class Doc {
       transform: `translate3d(0,${((1 - bb) * 16).toFixed(2)}px,0)`,
     });
     css(this.rtext, { left: '0px', width: `${C.w}px`, textAlign: 'center', top: '96px' });
-    css(this.bar, { left: `${(C.w - 880) / 2}px`, top: '178px', width: '880px' });
+    const barW = fit(880, 760);
+    css(this.bar, { left: `${(C.w - barW) / 2}px`, top: '178px', width: `${barW}px` });
     css(this.cap, { left: '0px', width: `${C.w}px`, textAlign: 'center', top: '228px' });
     const fp = prog(t, T.bar[0], T.bar[1]);
     css(this.fill, {
@@ -492,6 +520,8 @@ export class Doc {
         background: lit ? '#ffffff' : '#faf8f2',
         borderColor: lit ? '#c4960c' : '#e0d5bf',
       });
+      // The tall frame sees the first node from the start, so there it comes in with the line.
+      if (VERTICAL) css(it.node, { opacity: lineOn.toFixed(3) });
       css(it.icon, { opacity: lit ? '1' : '0.35' });
       const rr = prog(t, t0 + 0.15, t0 + 1.25);
       css(it.ring, {
@@ -531,6 +561,6 @@ export class Doc {
     const yy = dy * Math.cos(th),
       zz = dy * Math.sin(th);
     const f = P / (P - zz);
-    return [960 + (x - 960) * f, 540 + yy * f, f];
+    return [MX + (x - MX) * f, MY + yy * f, f];
   }
 }

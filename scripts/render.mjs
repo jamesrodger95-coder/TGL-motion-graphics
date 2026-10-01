@@ -11,14 +11,16 @@
 //
 //   node scripts/render.mjs [--film bryant-dental] [--samples 16] [--workers 3]
 //                           [--from 0] [--to 720] [--out dir] [--shard k/n] [--resume]
+//                           [--format 9x16]
 //
 // --shard k/n renders every n-th frame starting at k, so n separate processes
 // can share the work (each with its own Node main thread). --resume skips
-// frames that already exist and decode.
+// frames that already exist and decode. --format 9x16 renders a film's vertical
+// cut (1080x1920) into out/frames-9x16, for films composed for it.
 import { mkdir, readdir, unlink } from 'node:fs/promises';
 import { cpus } from 'node:os';
 import sharp from 'sharp';
-import { serve, openStage, filmDir } from './lib/stage.mjs';
+import { serve, openStage, filmDir, FORMATS } from './lib/stage.mjs';
 
 const arg = (name, def) => {
   const i = process.argv.indexOf(`--${name}`);
@@ -31,11 +33,11 @@ const SHUTTER = +arg('shutter', 0.5); // fraction of the frame interval the shut
 const WORKERS = +arg('workers', Math.max(1, Math.min(4, cpus().length - 1)));
 const FROM = +arg('from', 0);
 const TO = +arg('to', Math.round(FPS * DURATION));
-const OUT = arg('out', `${filmDir(FILM)}out/frames`);
+const FORMAT = arg('format', '16x9');
+const OUT = arg('out', `${filmDir(FILM)}out/frames${FORMAT === '16x9' ? '' : `-${FORMAT}`}`);
 const SHARD = arg('shard', '0/1').split('/').map(Number);
 const RESUME = process.argv.includes('--resume');
-const W = 1920,
-  H = 1080,
+const [W, H] = FORMATS[FORMAT],
   PX = W * H * 3;
 
 await mkdir(OUT, { recursive: true });
@@ -72,7 +74,7 @@ const budget = (frac) =>
   frac < 0.0004 ? 2 : frac < 0.01 ? Math.min(4, SAMPLES) : frac < 0.04 ? Math.min(8, SAMPLES) : SAMPLES;
 
 async function worker(frames, id) {
-  const { browser, page } = await openStage(server, { film: FILM });
+  const { browser, page } = await openStage(server, { film: FILM, format: FORMAT });
   const cdp = await page.context().newCDPSession(page);
   const acc = new Float32Array(PX);
   let sampled = 0;

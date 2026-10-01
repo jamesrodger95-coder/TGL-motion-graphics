@@ -5,6 +5,7 @@
 import { css, el, prog, lerp, clamp, K } from './kit.js';
 import { T, b } from './timeline.js';
 import { SITE } from './doc.js';
+import { W, MX, MY, VERTICAL, fit } from './layout.js';
 
 const PAGES = [
   [
@@ -44,21 +45,36 @@ const PAGES = [
 ];
 const PW = 480,
   PH = 640;
-const CX = 960,
-  CY = 572; // centre of the page row
+const CX = MX,
+  CY = fit(572, 1000); // centre of the page row
 const PIC = { x: 40, y: 150, w: 400, h: 225 }; // page 2's picture, page coords
+// The tall frame shows the pages larger and fans them closer, so the row's
+// neighbours stay in view either side of page 2.
+const PS = fit(1, 1.2); // page scale
+const PITCH = fit(548, 432); // page spacing in the fan
+const DRIFT = fit(-110, -60); // the row's drift while fanned
+const HEAD_Y = fit(78, 352);
+const PERSP_Y = fit(560, 988);
+// The cover: its centre and scale. Shot F's dust starts from its rectangle.
+const COVER = { x: MX, y: fit(560, 988), s: fit(1, 1.2) };
+export const COVER_RECT = {
+  x: COVER.x - 300 * COVER.s,
+  y: COVER.y - 400 * COVER.s,
+  w: 600 * COVER.s,
+  h: 800 * COVER.s,
+};
 
 export class Report {
   constructor(root, mapview) {
     this.root = root;
     this.mapview = mapview;
-    css(root, { perspective: '1800px', perspectiveOrigin: '960px 560px' });
+    css(root, { perspective: '1800px', perspectiveOrigin: `${MX}px ${PERSP_Y}px` });
     this.head = el('div', 'big cream', root, 'Illustrative Report Preview');
-    css(this.head, { fontSize: '64px', left: '960px', top: '78px' });
+    css(this.head, { fontSize: '64px', left: `${MX}px`, top: `${HEAD_Y}px` });
     this.sub = el('div', 'abs', root, 'Excerpts from the Sullivan Heritage Report');
     css(this.sub, {
-      left: '960px',
-      top: '164px',
+      left: `${MX}px`,
+      top: `${HEAD_Y + 86}px`,
       fontSize: '23px',
       color: 'rgba(245,237,224,0.7)',
       whiteSpace: 'nowrap',
@@ -100,7 +116,7 @@ export class Report {
       background:
         'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,248,225,0.75) 50%, rgba(255,255,255,0) 100%)',
     });
-    css(this.cover, { left: `${960 - 300}px`, top: `${560 - 400}px`, zIndex: 20 });
+    css(this.cover, { left: `${COVER.x - 300}px`, top: `${COVER.y - 400}px`, zIndex: 20 });
 
     // Disintegration: seeded fractal noise becomes the cover's alpha, and a
     // falling threshold eats it away in organic patches as the dust leaves.
@@ -136,24 +152,33 @@ export class Report {
     const appear = SITE.body(prog(t, T.toPage[0] + 0.25, T.toPage[1] + 0.1));
     const fan = SITE.body(prog(t, T.fan[0], T.fan[1]));
     const gather = K.inOut(prog(t, T.cover[0], T.cover[1] - 0.2));
-    const drift = K.inOut(prog(t, T.fan[0], T.cover[0])) * -110;
+    const drift = K.inOut(prog(t, T.fan[0], T.cover[0])) * DRIFT;
 
     // The map view shrinks into page 2's picture, and stays locked to it while
     // page 2 settles (it scales in about its centre) and drifts with the row.
+    // The picture is 16:9: the whole frame wide; in the tall frame, the band
+    // through its middle, which the crop closes onto as the view shrinks.
     const s = K.swoop(prog(t, T.toPage[0], T.toPage[1]));
-    const k = lerp(1.18, 1, appear);
+    const k = lerp(1.18, 1, appear) * PS;
     const x2 = drift * fan * (1 - gather);
     const px = CX + x2 + (CX - PW / 2 + PIC.x - CX) * k,
       py = CY + (CY - PH / 2 + PIC.y - CY) * k;
-    const sc = lerp(1, (PIC.w / 1920) * k, s);
+    const sc = lerp(1, (PIC.w / W) * k, s);
     const clipR = lerp(0, 8 / sc, s);
+    const band = MY - (W * PIC.h) / PIC.w / 2; // the band's top: 0 in the 16:9 frame
+    const crop = band * s;
     css(this.mapview, {
       transformOrigin: '0 0',
       transform:
         t >= T.toPage[0]
-          ? `translate3d(${(px * s).toFixed(2)}px,${(py * s).toFixed(2)}px,0) scale(${sc.toFixed(5)})`
+          ? `translate3d(${(px * s).toFixed(2)}px,${(lerp(band, py, s) - band * sc).toFixed(2)}px,0) scale(${sc.toFixed(5)})`
           : 'none',
-      clipPath: s > 0 ? `inset(0 round ${clipR.toFixed(2)}px)` : 'none',
+      clipPath:
+        s > 0
+          ? VERTICAL
+            ? `inset(${crop.toFixed(2)}px 0 round ${clipR.toFixed(2)}px)`
+            : `inset(0 round ${clipR.toFixed(2)}px)`
+          : 'none',
       zIndex: 12,
       visibility: t < T.cover[0] + 0.35 ? 'visible' : 'hidden',
     });
@@ -162,14 +187,14 @@ export class Report {
 
     this.pages.forEach((p, i) => {
       const o = i - 1;
-      const x = (o * 548 + drift) * fan * (1 - gather);
+      const x = (o * PITCH + drift) * fan * (1 - gather);
       const z = -Math.abs(o) * 150 * fan * (1 - gather) - (i === 1 ? 0 : 20);
       const ry = -o * 16 * fan * (1 - gather);
       const y = Math.abs(o) * 18 * fan * (1 - gather);
       // Once the cover is up, the pages under it go (so nothing shows through as it dissolves).
       const under = 1 - prog(t, T.cover[1], T.cover[1] + 0.2);
       const vis = (i === 1 ? appear : Math.min(1, fan * 1.8)) * under;
-      const scale = i === 1 ? lerp(1.18, 1, appear) : 1;
+      const scale = (i === 1 ? lerp(1.18, 1, appear) : 1) * PS;
       css(p, {
         transform: `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,${z.toFixed(2)}px) rotateY(${ry.toFixed(3)}deg) scale(${scale.toFixed(4)})`,
         opacity: vis.toFixed(3),
@@ -192,7 +217,7 @@ export class Report {
     // intercept 1 keeps everything; -7 removes everything
     this.dissolveA.setAttribute('intercept', (1 - 8 * K.inOut(dis)).toFixed(4));
     css(this.cover, {
-      transform: `translate3d(0,${((1 - c) * 140).toFixed(2)}px,${((1 - c) * -200).toFixed(2)}px) scale(${(0.9 + 0.1 * c + 0.04 * dis).toFixed(4)})`,
+      transform: `translate3d(0,${((1 - c) * 140 * COVER.s).toFixed(2)}px,${((1 - c) * -200).toFixed(2)}px) scale(${(COVER.s * (0.9 + 0.1 * c + 0.04 * dis)).toFixed(4)})`,
       opacity: (Math.min(1, c * 1.5) * (dis >= 1 ? 0 : 1)).toFixed(3),
       filter: dis > 0 ? 'url(#dissolve)' : 'none',
     });
@@ -207,6 +232,6 @@ export class Report {
       transform: `translate3d(${(-300 + 1200 * sh).toFixed(2)}px,0,0) rotate(18deg)`,
       opacity: sh > 0 && sh < 1 ? '1' : '0',
     });
-    this.coverRect = { x: 660, y: 160, w: 600, h: 800, c, dis };
+    this.coverRect = { ...COVER_RECT, c, dis };
   }
 }

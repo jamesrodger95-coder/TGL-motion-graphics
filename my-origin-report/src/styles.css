@@ -48,6 +48,8 @@ body {
   margin: 0;
   background: var(--paper);
 }
+/* 16:9 defaults; js/main.js and js/doc.js size the stage, the doc and its
+   perspective for the frame in use (js/layout.js). */
 #stage {
   position: relative;
   width: 1920px;
@@ -441,6 +443,22 @@ body {
   text-transform: uppercase;
   color: var(--gold-light);
   white-space: nowrap;
+}
+
+/* ------------------------------------------------------------ 9:16 */
+/* The vertical cut: the timeline's columns narrow, so the record titles wrap. */
+.v .tbody {
+  width: 400px;
+}
+.v .tbody h3 {
+  font-size: 34px;
+  line-height: 1.2;
+  white-space: normal;
+  margin-bottom: 12px;
+}
+.v .tbody p {
+  font-size: 22px;
+  line-height: 1.55;
 }
 
 #grade {

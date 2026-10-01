@@ -7,6 +7,8 @@
 // becomes the helix.
 import { clamp, lerp, prog, K, css, el } from './kit.js';
 import { T, b } from './timeline.js';
+import { MX, fit } from './layout.js';
+import { COVER_RECT } from './report.js';
 
 const TAU = 2 * Math.PI;
 const ARCS = [
@@ -20,6 +22,12 @@ const u = (e) => {
 };
 // The site's "dark" palette (for its navy sections).
 const PAL = { from: [212, 42, 64], to: [44, 84, 56], glow: '226,190,90' };
+// The logo (centre y, radius scale) and the end card's rows under it; x is
+// the left edge of the lines before the morph.
+const ROW = fit(
+  { x: 150, mark: [392, 150], word: 590, tag: 700, btn: 792, chip: 924 },
+  { x: 100, mark: [760, 165], word: 973, tag: 1083, btn: 1175, chip: 1307 }
+);
 
 /** The site's particle generator (f() in its bundle), unchanged. */
 function generate(n) {
@@ -117,14 +125,15 @@ export class Dust {
     this.g = canvas.getContext('2d');
     this.P = generate(1100);
     this.colors = ramp(PAL);
-    // Helix on the right (as on the site's hero), logo lands centre stage.
-    this.R = 1330; // helix axis x
-    this.F = 520; // helix centre y
+    // Helix on the right (as on the site's hero), logo lands centre stage. In
+    // the tall frame the helix stands under the lines and the logo forms
+    // above the wordmark.
+    this.R = fit(1330, 540); // helix axis x
+    this.F = fit(520, 1120); // helix centre y
     this.I = 150; // helix radius
     this.L = 0.74 * 1040; // helix height
-    this.LX = 960; // logo centre
-    this.LY = 392;
-    this.H = 150; // logo radius scale (arc r 44 -> 132 px)
+    this.LX = MX; // logo centre
+    [this.LY, this.H] = ROW.mark; // and radius scale (arc r 44 -> 132 px)
     this.W = 0.55 * 1080; // control-point reach
     this.SZ = 2.0; // particles are drawn at film scale
     // The helix spin angle integrates the site's speed-up: precompute on a fixed step.
@@ -142,9 +151,10 @@ export class Dust {
     this.oy = new Float32Array(P.n);
     let s2 = 7;
     const r2 = () => ((s2 = (s2 * 16807) % 2147483647) - 1) / 2147483646;
+    const C = COVER_RECT;
     for (let i = 0; i < P.n; i++) {
-      this.ox[i] = 660 + 600 * r2();
-      this.oy[i] = 160 + 800 * r2();
+      this.ox[i] = C.x + C.w * r2();
+      this.oy[i] = C.y + C.h * r2();
     }
   }
 
@@ -155,7 +165,7 @@ export class Dust {
 
   draw(t) {
     const g = this.g;
-    g.clearRect(0, 0, 1920, 1080);
+    g.clearRect(0, 0, this.canvas.width, this.canvas.height);
     const on = t >= T.dissolve[0];
     css(this.canvas, { visibility: on ? 'visible' : 'hidden' });
     if (!on) return;
@@ -260,10 +270,10 @@ export class End {
   constructor(root) {
     this.root = root;
     this.l1 = el('div', 'big', root, 'No DNA sample.');
-    css(this.l1, { left: '150px', top: '360px', fontSize: '104px', color: '#fff' });
+    css(this.l1, { left: `${ROW.x}px`, top: '360px', fontSize: '104px', color: '#fff' });
     this.l2 = el('div', 'big', root, 'Just your surname.');
     css(this.l2, {
-      left: '150px',
+      left: `${ROW.x}px`,
       top: '480px',
       fontSize: '104px',
       color: '#e8c56d',
@@ -272,21 +282,22 @@ export class End {
     });
     this.mark = el('img', 'abs', root);
     this.mark.src = 'brand/logo-mark.svg';
+    const [my, mr] = ROW.mark; // the logo's centre y and radius scale
     css(this.mark, {
-      width: '300px',
-      height: '300px',
-      left: `${960 - 150}px`,
-      top: `${392 - 150}px`,
+      width: `${2 * mr}px`,
+      height: `${2 * mr}px`,
+      left: `${MX - mr}px`,
+      top: `${my - mr}px`,
     });
     this.word = el('div', 'big', root, 'My Origin Report');
-    css(this.word, { fontSize: '92px', color: '#fff', top: '590px' });
+    css(this.word, { fontSize: '92px', color: '#fff', top: `${ROW.word}px` });
     this.tag = el('div', 'big', root, 'It’s time you knew their story.');
     css(this.tag, {
       fontSize: '50px',
       color: '#e8c56d',
       fontStyle: 'italic',
       fontWeight: '600',
-      top: '700px',
+      top: `${ROW.tag}px`,
     });
     this.btn = el('div', 'btn', root, 'Get My Report - $15');
     this.chip = el('div', 'chip', root, '$15 one-time · Digital PDF · No DNA required');
@@ -295,8 +306,8 @@ export class End {
   measure() {
     for (const n of [this.word, this.tag, this.btn, this.chip])
       n._w = n.getBoundingClientRect().width;
-    css(this.btn, { left: `${960 - this.btn._w / 2}px`, top: '792px' });
-    css(this.chip, { left: `${960 - this.chip._w / 2}px`, top: '924px' });
+    css(this.btn, { left: `${MX - this.btn._w / 2}px`, top: `${ROW.btn}px` });
+    css(this.chip, { left: `${MX - this.chip._w / 2}px`, top: `${ROW.chip}px` });
   }
 
   update(t) {
@@ -324,13 +335,13 @@ export class End {
     const wp = K.settle(prog(t, T.wordmark, T.wordmark + 0.7));
     css(this.word, {
       opacity: wp.toFixed(3),
-      transform: `translate3d(${(960 - this.word._w / 2).toFixed(2)}px,${((1 - wp) * 36).toFixed(2)}px,0)`,
+      transform: `translate3d(${(MX - this.word._w / 2).toFixed(2)}px,${((1 - wp) * 36).toFixed(2)}px,0)`,
       letterSpacing: `${(0.08 * (1 - wp)).toFixed(4)}em`,
     });
     const tp = K.settle(prog(t, T.tagline, T.tagline + 0.7));
     css(this.tag, {
       opacity: tp.toFixed(3),
-      transform: `translate3d(${(960 - this.tag._w / 2).toFixed(2)}px,${((1 - tp) * 26).toFixed(2)}px,0)`,
+      transform: `translate3d(${(MX - this.tag._w / 2).toFixed(2)}px,${((1 - tp) * 26).toFixed(2)}px,0)`,
       filter: tp < 1 ? `blur(${((1 - tp) * 8).toFixed(2)}px)` : 'none',
     });
     const bp = prog(t, T.cta, T.cta + 0.5);
