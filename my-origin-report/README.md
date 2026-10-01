@@ -1,7 +1,8 @@
 # My Origin Report — 24-second motion reel
 
 **Film:** [`out/my-origin-report-reel.mp4`](out/my-origin-report-reel.mp4) · 1920×1080 · 60 fps · 24.0 s · stereo AAC  
-**Poster:** [`out/my-origin-report-reel-poster.png`](out/my-origin-report-reel-poster.png)
+**Vertical cut:** [`out/my-origin-report-reel-9x16.mp4`](out/my-origin-report-reel-9x16.mp4) · 1080×1920 (9:16, for Reels) · 60 fps · 24.0 s · the same soundtrack  
+**Posters:** [`out/my-origin-report-reel-poster.png`](out/my-origin-report-reel-poster.png) · [`out/my-origin-report-reel-9x16-poster.png`](out/my-origin-report-reel-9x16-poster.png)
 
 A showreel-grade brand film for My Origin Report, built from the live site,
 https://www.myoriginreport.com/. It uses the site's copy, type, palette and
@@ -27,6 +28,23 @@ music and every cue still lands on the grid.
 | 10.2 – 14.6 | **The origin**    | The seal opens as an iris onto a navy world: the site's own world outline, traced in gold and revealed outward from County Cork. The origin (_Sullivan, "descendant of the dark-eyed one"_, first recorded in County Cork) beats like a heart. Routes arc to Boston, New York, Philadelphia, London, Chicago, San Francisco and Sydney.   |
 | 14.6 – 18.6 | **The report**    | The map shrinks into page 2 of the site's _Illustrative Report Preview_. Its five pages fan out, then gather under a cover with the site's decorative heraldic art rising on it.                                                                                                                                                          |
 | 18.6 – 24   | **The mark**      | The report turns to dust, the dust becomes the site's particle DNA helix (_No DNA sample._ / _Just your surname._), and the helix flies into the logo exactly as it does on the site. Then _My Origin Report_, _It's time you knew their story._ and **Get My Report - $15**.                                                             |
+
+## The vertical cut (9:16)
+
+[`out/my-origin-report-reel-9x16.mp4`](out/my-origin-report-reel-9x16.mp4) is
+the same film composed for a 1080×1920 frame, for Instagram Reels, YouTube
+Shorts and TikTok. Every cue, curve and sound is shared with the 16:9 film;
+only the layout changes. Each shot reads its frame from `src/js/layout.js`
+(`?format=9x16`), and the 16:9 film still renders pixel for pixel as before.
+
+| Shot              | In 9:16                                                                                                                                                                                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **The name**      | The hero line sets on two lines (_Explore the / History Behind_) over the gold slot, which sits at the centre of the frame. The form stacks as it does on a phone, with the button under the input.                                                        |
+| **Researching**   | The demo card narrows to 920 px and grows from the input, as in 16:9.                                                                                                                                                                                      |
+| **The centuries** | The same zig-zag road down the centre. Its text columns narrow to 400 px, so the record titles wrap. The taller frame can see the first node from the start, so it comes in with the line.                                                                 |
+| **The origin**    | The frame sees 9/16 as much map across, so the camera pulls out further. It lands on the same 16:9 view, which becomes page 2's picture as a crop closes onto it. The origin text sits in the lower third.                                                 |
+| **The report**    | The pages and the cover are 1.2× larger, and the fan is pitched closer, so page 2's neighbours stay in view either side.                                                                                                                                   |
+| **The mark**      | The helix stands under _No DNA sample. / Just your surname._, and the logo forms above the wordmark, line, button and chip, stacked. The end card and the origin text sit clear of the bottom of the frame, where Reels lays its caption over the picture. |
 
 ## What comes from the site
 
@@ -71,8 +89,10 @@ From the repository root (Node 20+, Python 3.11+, Chromium via Playwright):
 
 ```bash
 npm run origin:build                                 # soundtrack -> frames -> MP4
+npm run origin:build:9x16                            # the vertical cut (frames-9x16 -> MP4)
 npm run stills -- --film my-origin-report 3.2 23.8   # review frames (real seconds)
-npm run preview -- --film my-origin-report           # live preview in a browser
+npm run stills -- --film my-origin-report --format 9x16 3.2 23.8
+npm run preview -- --film my-origin-report           # live preview (add ?format=9x16)
 ```
 
 The renderer, motion blur (up to 16 sub-frames per frame, 180° shutter) and

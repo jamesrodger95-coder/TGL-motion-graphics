@@ -9,7 +9,10 @@ Four 1080p60 brand films, each rendered frame by frame from deterministic HTML/S
 | **Everyone's Energy**, one day of solar in 15 s   | [`everyones-energy/`](everyones-energy/README.md) | [`everyones-energy/out/everyones-energy-reel.mp4`](everyones-energy/out/everyones-energy-reel.mp4) |
 | **My Origin Report**, one surname's story in 24 s | [`my-origin-report/`](my-origin-report/README.md) | [`my-origin-report/out/my-origin-report-reel.mp4`](my-origin-report/out/my-origin-report-reel.mp4) |
 
-The renderer (`scripts/render.mjs`, `--film <folder>`), stills, preview and encoder are shared.
+My Origin Report also has a vertical cut for Reels (1080×1920, 9:16):
+[`my-origin-report/out/my-origin-report-reel-9x16.mp4`](my-origin-report/out/my-origin-report-reel-9x16.mp4).
+
+The renderer (`scripts/render.mjs`, `--film <folder>`, `--format 9x16`), stills, preview and encoder are shared.
 
 ---
 
