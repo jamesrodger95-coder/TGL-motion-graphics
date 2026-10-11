@@ -17,3 +17,6 @@ my-origin-report/out/render*.log
 sps-plumbing/out/frames/
 sps-plumbing/out/cues.json
 sps-plumbing/out/render*.log
+tandem/out/frames/
+tandem/out/cues.json
+tandem/out/render*.log

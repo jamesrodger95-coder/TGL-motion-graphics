@@ -1,0 +1,214 @@
+/* ============================================================================
+   TANDEM — MOTION REEL
+   From https://www.thetandemco.com/ (its Webflow stylesheet and artwork):
+   white-0 #F7F7F0, black-100 #1E1E1C, secondary text #555551, petrol dark
+   #8C8C85 / medium #C1C9C0 / light #D6DBD5, blue #B6D1D8, warm #DCCDBB.
+   Its Söhne and Season Serif are commercial faces; Inter Tight and
+   Newsreader (both SIL Open Font License) stand in.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/InterTight-VF.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("fonts/Newsreader-VF.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("fonts/Newsreader-Italic-VF.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+}
+
+:root {
+  --white: #f7f7f0;
+  --black: #1e1e1c;
+  --text-2: #555551;
+  --petrol-dark: #8c8c85;
+  --petrol-medium: #c1c9c0;
+  --petrol-light: #d6dbd5;
+  --blue: #b6d1d8;
+  --sans: "Inter Tight", Arial, sans-serif;
+  --serif: "Newsreader", Georgia, serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--white);
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+svg.full {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+}
+
+/* small type, as in the site's hero */
+.small {
+  position: absolute;
+  font-weight: 450;
+  font-size: 20px;
+  letter-spacing: 0.005em;
+  color: var(--black);
+  white-space: nowrap;
+}
+.muted {
+  color: var(--text-2);
+}
+
+/* B: photographs, full bleed */
+.photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #222;
+}
+.photo img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1280px;
+  object-fit: cover;
+  transform-origin: 50% 50%;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 18, 0.25) 0%,
+    rgba(20, 20, 18, 0) 30%,
+    rgba(20, 20, 18, 0) 50%,
+    rgba(20, 20, 18, 0.55) 100%
+  );
+}
+.display {
+  position: absolute;
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--white);
+}
+/* the site's image label: a small tag, top left, and its round icon, top right */
+.tag {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 6px;
+  background: var(--white);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 46px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.tag span {
+  display: block;
+}
+.plus {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--white);
+  box-sizing: border-box;
+}
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--white);
+}
+.plus::before {
+  width: 16px;
+  height: 1.5px;
+  margin: -0.75px 0 0 -8px;
+}
+.plus::after {
+  width: 1.5px;
+  height: 16px;
+  margin: -8px 0 0 -0.75px;
+}
+
+/* C */
+.tagline {
+  position: absolute;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 74px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.hero {
+  font-size: 66px;
+}
+.tagline i {
+  font-style: italic;
+}
+.services {
+  position: absolute;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--petrol-dark);
+  white-space: nowrap;
+}
+.line {
+  position: absolute;
+  white-space: nowrap;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.12em 0.06em 0.16em;
+  margin: -0.12em -0.06em -0.16em;
+}
+.w {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 80% at 50% 48%,
+    transparent 64%,
+    rgba(30, 30, 28, 0.12) 100%
+  );
+}

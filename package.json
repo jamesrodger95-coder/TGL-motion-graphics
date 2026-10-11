@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/) and Sydney's Plumbing Specialists (sps-plumbing/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/) and Tandem (tandem/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -30,7 +30,11 @@
     "sps:audio": "node sps-plumbing/scripts/cues.mjs > sps-plumbing/out/cues.json && python3 sps-plumbing/scripts/audio.py sps-plumbing/out/cues.json sps-plumbing/out/soundtrack.wav",
     "sps:frames": "node scripts/render.mjs --film sps-plumbing --samples 16",
     "sps:encode": "GRAIN=3 python3 scripts/encode.py sps-plumbing/out/frames sps-plumbing/out/soundtrack.wav sps-plumbing/out/sps-plumbing-reel.mp4",
-    "sps:build": "npm run sps:audio && npm run sps:frames && npm run sps:encode"
+    "sps:build": "npm run sps:audio && npm run sps:frames && npm run sps:encode",
+    "tandem:audio": "node tandem/scripts/cues.mjs > tandem/out/cues.json && python3 tandem/scripts/audio.py tandem/out/cues.json tandem/out/soundtrack.wav",
+    "tandem:frames": "node scripts/render.mjs --film tandem --samples 16",
+    "tandem:encode": "GRAIN=3 python3 scripts/encode.py tandem/out/frames tandem/out/soundtrack.wav tandem/out/tandem-reel.mp4",
+    "tandem:build": "npm run tandem:audio && npm run tandem:frames && npm run tandem:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
