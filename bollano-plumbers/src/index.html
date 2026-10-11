@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bollano Plumbers — Motion Reel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- A 1920x1080 stage. js/main.js positions everything as a pure function
+         of time, so any frame can be rendered in any order. -->
+    <div id="stage">
+      <!-- One 3840-wide world for the drop, the hero and the radiator; the
+           camera whips from the first half to the second. -->
+      <div id="world" class="layer">
+        <div id="blob"></div>
+        <svg id="water" class="world-svg" viewBox="0 0 3840 1080"></svg>
+        <svg id="heat" class="world-svg" viewBox="0 0 3840 1080"></svg>
+        <div id="hero"></div>
+        <div id="type" class="layer"></div>
+      </div>
+      <canvas id="flood" width="1920" height="1080"></canvas>
+      <div id="end" class="layer"></div>
+      <div id="grade" class="layer"></div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

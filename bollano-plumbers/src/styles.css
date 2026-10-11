@@ -1,0 +1,226 @@
+/* ============================================================================
+   BOLLANO PLUMBERS — MOTION REEL
+   Measured from https://www.bollanoplumbers.co.uk/ (its stylesheet, its logo
+   and its hero illustration): DM Serif Display headings over Poppins; navy
+   #003764 / #002c5c; red #e2211c; the hero's pale curve #e6eef9 / #eef6fb;
+   the drop icon's blue #84dbff; body grey #6b6f83.
+   ========================================================================= */
+
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("fonts/DMSerifDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+:root {
+  --navy: #003764;
+  --navy-deep: #002c5c;
+  --red: #e2211c;
+  --pale: #e6eef9;
+  --paler: #eef6fb;
+  --drop: #84dbff;
+  --grey: #6b6f83;
+  --serif: "DM Serif Display", Georgia, serif;
+  --sans: "Poppins", system-ui, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: #fff;
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+#world {
+  width: 3840px;
+  height: 1080px;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.world-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3840px;
+  height: 1080px;
+  overflow: visible;
+}
+#blob {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--pale);
+}
+#hero {
+  position: absolute;
+  overflow: visible;
+}
+#hero svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+/* The illustration's own idle loop (the site's `head` keyframe) is driven by
+   the film's clock instead of CSS. */
+#hero svg * {
+  animation: none !important;
+}
+
+/* ---------------------------------------------------------------- type */
+.line {
+  position: absolute;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  transform-origin: 0 0;
+}
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.04em 0.06em 0.14em;
+  margin: -0.04em -0.06em -0.14em;
+}
+.w {
+  display: inline-block;
+  will-change: transform;
+}
+.stack {
+  position: relative;
+  display: inline-block;
+}
+.stack > span {
+  display: block;
+}
+.stack > span + span {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 3px var(--navy);
+}
+
+/* ---------------------------------------------------------------- end card */
+#flood {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+#end {
+  visibility: hidden;
+  color: #fff;
+}
+#end .glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 62% 70% at 50% 52%,
+    rgba(38, 104, 168, 0.55) 0%,
+    rgba(0, 55, 100, 0) 70%
+  );
+}
+#end .logo {
+  position: absolute;
+  overflow: visible;
+}
+#end .shine {
+  position: absolute;
+  -webkit-mask: url("brand/logo-reverse.png") 0 0 / 100% 100% no-repeat;
+  mask: url("brand/logo-reverse.png") 0 0 / 100% 100% no-repeat;
+}
+#end .shine i {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  width: 240px;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.pill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 92px;
+  padding: 0 52px 0 40px;
+  border-radius: 46px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 44px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: 0 18px 40px rgba(0, 18, 40, 0.35);
+}
+.pill svg {
+  width: 40px;
+  height: 40px;
+}
+.url {
+  position: absolute;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 27px;
+  letter-spacing: 0.14em;
+  color: var(--pale);
+  white-space: nowrap;
+}
+.card {
+  position: absolute;
+  border-radius: 28px;
+  background: var(--navy);
+  box-shadow: 0 24px 50px rgba(0, 40, 80, 0.22);
+}
+.card img {
+  position: absolute;
+  display: block;
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 85% at 50% 50%,
+    rgba(0, 0, 0, 0) 62%,
+    rgba(0, 20, 45, 0.045) 100%
+  );
+}

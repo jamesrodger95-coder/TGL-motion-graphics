@@ -14,3 +14,6 @@ my-origin-report/out/frames/
 my-origin-report/out/frames-9x16/
 my-origin-report/out/cues.json
 my-origin-report/out/render*.log
+bollano-plumbers/out/frames/
+bollano-plumbers/out/cues.json
+bollano-plumbers/out/render*.log
