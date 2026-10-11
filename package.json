@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/) and Tandem (tandem/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/) and Malarkey Roofing Products (malarkey/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -34,7 +34,11 @@
     "tandem:audio": "node tandem/scripts/cues.mjs > tandem/out/cues.json && python3 tandem/scripts/audio.py tandem/out/cues.json tandem/out/soundtrack.wav",
     "tandem:frames": "node scripts/render.mjs --film tandem --samples 16",
     "tandem:encode": "GRAIN=3 python3 scripts/encode.py tandem/out/frames tandem/out/soundtrack.wav tandem/out/tandem-reel.mp4",
-    "tandem:build": "npm run tandem:audio && npm run tandem:frames && npm run tandem:encode"
+    "tandem:build": "npm run tandem:audio && npm run tandem:frames && npm run tandem:encode",
+    "malarkey:audio": "node malarkey/scripts/cues.mjs > malarkey/out/cues.json && python3 malarkey/scripts/audio.py malarkey/out/cues.json malarkey/out/soundtrack.wav",
+    "malarkey:frames": "node scripts/render.mjs --film malarkey --samples 16",
+    "malarkey:encode": "GRAIN=3 python3 scripts/encode.py malarkey/out/frames malarkey/out/soundtrack.wav malarkey/out/malarkey-reel.mp4",
+    "malarkey:build": "npm run malarkey:audio && npm run malarkey:frames && npm run malarkey:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",

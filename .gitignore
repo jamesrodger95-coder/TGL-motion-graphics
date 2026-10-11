@@ -20,3 +20,6 @@ sps-plumbing/out/render*.log
 tandem/out/frames/
 tandem/out/cues.json
 tandem/out/render*.log
+malarkey/out/frames/
+malarkey/out/cues.json
+malarkey/out/render*.log

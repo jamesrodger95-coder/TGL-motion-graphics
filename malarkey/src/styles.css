@@ -1,0 +1,213 @@
+/* ============================================================================
+   MALARKEY ROOFING PRODUCTS — MOTION REEL
+   From https://www.malarkeyroofing.com/ (its stylesheet and artwork): green
+   #009845, orange #D28122, black, white, #F8F8F8. Its Geogrotesque is a
+   commercial face; Barlow and Barlow Condensed (SIL Open Font License) stand in.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Barlow";
+  src: url("fonts/Barlow-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("fonts/Barlow-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("fonts/Barlow-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("fonts/Barlow-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("fonts/Barlow-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("fonts/BarlowCondensed-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("fonts/BarlowCondensed-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("fonts/BarlowCondensed-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+:root {
+  --green: #009845;
+  --orange: #d28122;
+  --ink: #111;
+  --sans: "Barlow", Arial, sans-serif;
+  --cond: "Barlow Condensed", Arial, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: #000;
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: #8fb9da;
+  color: #fff;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.layer,
+#roof {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.line {
+  position: absolute;
+  white-space: nowrap;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.08em 0.06em 0.12em;
+  margin: -0.08em -0.06em -0.12em;
+}
+.w {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* A */
+.kicker {
+  position: absolute;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.caption {
+  font-weight: 300;
+  font-size: 84px;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.zone {
+  position: absolute;
+  height: 64px;
+  padding: 0 26px;
+  border-radius: 4px;
+  background: var(--orange);
+  font-weight: 700;
+  font-size: 27px;
+  letter-spacing: 0.12em;
+  line-height: 64px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+.zone b {
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  opacity: 0.92;
+}
+
+/* B */
+.matters {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.covered {
+  font-family: var(--cond);
+  font-weight: 800;
+  font-size: 168px;
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+.stat {
+  position: absolute;
+  width: 360px;
+}
+.stat .n {
+  font-weight: 300;
+  font-size: 96px;
+  line-height: 1;
+}
+.stat .bar {
+  height: 4px;
+  width: 70px;
+  background: var(--green);
+  margin: 14px 0 14px;
+  transform-origin: 0 50%;
+}
+.stat .l {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+}
+.stat .k {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+}
+
+/* C: the slanted panel */
+#panel .sheet {
+  position: absolute;
+  inset: 0;
+}
+.tag {
+  font-weight: 300;
+  font-size: 46px;
+  line-height: 1.15;
+}
+.foot {
+  position: absolute;
+  font-weight: 400;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+.matters2 {
+  position: absolute;
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 0.06em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 80% at 50% 48%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+}
