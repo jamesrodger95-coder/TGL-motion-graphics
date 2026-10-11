@@ -1,0 +1,228 @@
+/* ============================================================================
+   MODUS PROJECTS — MOTION REEL
+   Measured from https://www.modusprojects.nl/ (its Webflow tokens and inline
+   SVGs): orange #ffa574; dark grey #3b3940; mid grey #848c8f; light grey
+   #dbe2e5; near black #0e0a0a. Headings are uppercase in OT Jubilee Silver
+   and labels in Aeonik Mono; the film uses Jost and DM Mono (OFL) in their
+   place.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/Jost-VF.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "DM Mono";
+  src: url("fonts/DMMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "DM Mono";
+  src: url("fonts/DMMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+:root {
+  --orange: #ffa574;
+  --dark: #3b3940;
+  --mid: #848c8f;
+  --light: #dbe2e5;
+  --black: #0e0a0a;
+  --display: "Jost", Futura, sans-serif;
+  --mono: "DM Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--black);
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--black);
+  color: #fff;
+  font-family: var(--display);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+#film {
+  position: absolute;
+  inset: 0;
+}
+#shade {
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(14, 10, 10, 0.55) 0%,
+      rgba(14, 10, 10, 0.12) 55%,
+      rgba(14, 10, 10, 0) 75%
+    ),
+    linear-gradient(0deg, rgba(14, 10, 10, 0.5) 0%, rgba(14, 10, 10, 0) 45%);
+}
+#pins {
+  overflow: visible;
+}
+
+/* ---------------------------------------------------------------- type */
+.title {
+  position: absolute;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+}
+.row {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.04em 0.08em;
+  margin: -0.06em -0.04em -0.08em;
+}
+.ch {
+  display: inline-block;
+  will-change: transform;
+}
+.mono {
+  position: absolute;
+  font-family: var(--mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- pins */
+.label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 26px 16px 18px;
+  background: rgba(14, 10, 10, 0.72);
+  border-left: 3px solid var(--orange);
+  white-space: nowrap;
+}
+.label .n {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+.label .t {
+  font-family: var(--display);
+  font-size: 46px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.label .plus {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  position: relative;
+}
+.label .plus::before,
+.label .plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 1.5px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+.label .plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* ---------------------------------------------------------------- panels */
+.panel {
+  position: absolute;
+  top: 0;
+  height: 1080px;
+  overflow: hidden;
+}
+.panel img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.panel .h {
+  position: absolute;
+  left: 56px;
+  top: 64px;
+  font-family: var(--display);
+  font-size: 76px;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+.panel .num {
+  position: absolute;
+  right: 48px;
+  bottom: 40px;
+  font-family: var(--display);
+  font-size: 96px;
+  line-height: 1;
+}
+.panel .k {
+  position: absolute;
+  left: 58px;
+  top: 34px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- end */
+#end {
+  visibility: hidden;
+}
+#end svg {
+  position: absolute;
+  overflow: visible;
+}
+.btn {
+  position: absolute;
+  height: 76px;
+  padding: 0 38px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--orange);
+  color: var(--black);
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+#end .deco {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 1080px;
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 80% at 50% 50%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(14, 10, 10, 0.28) 100%
+  );
+}

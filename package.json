@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/) My Origin Report (my-origin-report/) and Bollano Plumbers (bollano-plumbers/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/) My Origin Report (my-origin-report/), Bollano Plumbers (bollano-plumbers/) and Modus Projects (modus-projects/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -30,7 +30,11 @@
     "bollano:audio": "node bollano-plumbers/scripts/cues.mjs > bollano-plumbers/out/cues.json && python3 bollano-plumbers/scripts/audio.py bollano-plumbers/out/cues.json bollano-plumbers/out/soundtrack.wav",
     "bollano:frames": "node scripts/render.mjs --film bollano-plumbers --samples 16",
     "bollano:encode": "GRAIN=2 python3 scripts/encode.py bollano-plumbers/out/frames bollano-plumbers/out/soundtrack.wav bollano-plumbers/out/bollano-plumbers-reel.mp4",
-    "bollano:build": "npm run bollano:audio && npm run bollano:frames && npm run bollano:encode"
+    "bollano:build": "npm run bollano:audio && npm run bollano:frames && npm run bollano:encode",
+    "modus:audio": "node modus-projects/scripts/cues.mjs > modus-projects/out/cues.json && python3 modus-projects/scripts/audio.py modus-projects/out/cues.json modus-projects/out/soundtrack.wav",
+    "modus:frames": "node scripts/render.mjs --film modus-projects --samples 16",
+    "modus:encode": "GRAIN=3 python3 scripts/encode.py modus-projects/out/frames modus-projects/out/soundtrack.wav modus-projects/out/modus-projects-reel.mp4",
+    "modus:build": "npm run modus:audio && npm run modus:frames && npm run modus:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",

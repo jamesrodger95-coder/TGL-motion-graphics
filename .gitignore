@@ -17,3 +17,6 @@ my-origin-report/out/render*.log
 bollano-plumbers/out/frames/
 bollano-plumbers/out/cues.json
 bollano-plumbers/out/render*.log
+modus-projects/out/frames/
+modus-projects/out/cues.json
+modus-projects/out/render*.log
