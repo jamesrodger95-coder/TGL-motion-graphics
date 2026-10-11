@@ -1,7 +1,7 @@
 // Shot B — "plumbing". The site's hero, rebuilt from its parts: its pale curve
 // sweeps in, the bath drops onto the circle the ripple became, the taps pop
 // and turn, the three hoses pour down (cold, mains, hot), and the plumber
-// slides in to work. The illustration's own idle loop (its `head` keyframe:
+// rises into place to work. The illustration's own idle loop (its `head` keyframe:
 // 0 -> 1deg, 1 s, alternate) runs on the film's clock.
 import { T } from './timeline.js';
 import { C, K, clamp, lerp, prog, css, el, svg, attr, squash, waveClip } from './kit.js';
@@ -113,13 +113,14 @@ export class Hero {
       attr(w.r, { height: (w.h * q).toFixed(2) });
     });
 
-    // The plumber slides in on his knees and leans into the job.
+    // The plumber rises into place from below (clear of the headline) and
+    // leans into the job.
     const mp = prog(t, T.plumber[0], T.plumber[1]);
-    const mx = lerp(-820, 0, K.settle(mp));
-    const lean = -7 + 7 * K.spring(mp, 1.4, 4.5);
+    const my = lerp(460, 0, K.settle(mp));
+    const lean = 8 - 8 * K.spring(mp, 1.4, 4.5);
     attr(this.man, {
       visibility: mp > 0 ? 'visible' : 'hidden',
-      transform: `translate(${mx.toFixed(2)},0) ${pivotT(70, 470, `rotate(${lean.toFixed(3)})`)}`,
+      transform: `translate(0,${my.toFixed(2)}) ${pivotT(70, 470, `rotate(${lean.toFixed(3)})`)}`,
     });
     // The site's idle loop: 0 -> 1deg and back, a second each way.
     const ph = (t % 2) / 1;
