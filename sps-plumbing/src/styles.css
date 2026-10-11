@@ -1,0 +1,249 @@
+/* ============================================================================
+   SYDNEY'S PLUMBING SPECIALISTS — MOTION REEL
+   From https://spsplumbers.com.au/ (its stylesheets and artwork): navy
+   #111622 / #161E30 / #1F2024, SPS red #FE5455 -> #D43D3A -> #A3211B, blue
+   #1D88D0, finance green #00A87B; El Messiri for its hero. Montserrat
+   (OFL) stands in for its commercial Articulat CF and matches the wordmark.
+   ========================================================================= */
+
+@font-face {
+  font-family: "El Messiri";
+  src: url("fonts/ElMessiri-VF.ttf") format("truetype");
+  font-weight: 400 700;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-VF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Italic-VF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+:root {
+  --navy: #111622;
+  --navy-2: #161e30;
+  --ink: #1f2024;
+  --red: #fe5455;
+  --red-2: #d43d3a;
+  --red-3: #a3211b;
+  --blue: #1d88d0;
+  --green: #00a87b;
+  --sans: "Montserrat", system-ui, sans-serif;
+  --serif: "El Messiri", Georgia, serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--navy);
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* The blueprint: the site's navy, a drafting grid. */
+#bg {
+  background: radial-gradient(ellipse 80% 70% at 50% 40%, #182339 0%, #0f1523 72%, #0b101b 100%);
+  overflow: hidden;
+}
+#grid {
+  position: absolute;
+  left: -120px;
+  top: -120px;
+  width: 2160px;
+  height: 2600px;
+  background-image:
+    linear-gradient(rgba(120, 170, 255, 0.075) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(120, 170, 255, 0.075) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(120, 170, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 170, 255, 0.035) 1px, transparent 1px);
+  background-size:
+    240px 240px,
+    240px 240px,
+    48px 48px,
+    48px 48px;
+}
+#glow {
+  pointer-events: none;
+}
+#world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 3240px;
+  transform-origin: 0 0;
+}
+#world > svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+}
+
+/* ------------------------------------------------------------ type */
+.line {
+  position: absolute;
+  white-space: nowrap;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.1em 0.1em 0.14em;
+  margin: -0.1em -0.1em -0.14em;
+}
+.w {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+.hero {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 136px;
+  line-height: 1;
+  letter-spacing: -0.005em;
+}
+.kicker {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ------------------------------------------------------------ cards */
+.card {
+  position: absolute;
+  width: 440px;
+  height: 560px;
+  box-sizing: border-box;
+  padding: 44px 40px 0;
+}
+.mark {
+  position: relative;
+  height: 128px;
+}
+.mark .sps {
+  position: absolute;
+  left: -4px;
+  top: -14px;
+  font-weight: 900;
+  font-size: 104px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.ribbon {
+  position: absolute;
+  left: 150px;
+  top: 74px;
+  height: 44px;
+  padding: 0 22px;
+  transform-origin: 0 50%;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 23px;
+  line-height: 44px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  white-space: nowrap;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%, 12px 50%);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+.eyebrow {
+  margin-top: 46px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.promise {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 1.14;
+  letter-spacing: -0.005em;
+}
+.detail {
+  margin-top: 22px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ------------------------------------------------------------ end */
+.tag {
+  font-weight: 600;
+  font-size: 54px;
+  letter-spacing: 0.005em;
+}
+.rating {
+  font-weight: 500;
+  font-size: 27px;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.rating b {
+  font-weight: 800;
+  color: #fff;
+}
+.star {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.btn {
+  position: absolute;
+  height: 88px;
+  padding: 0 46px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 88px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.btn.call {
+  background: linear-gradient(180deg, #2a98e0, #1d88d0);
+  box-shadow: 0 18px 40px -12px rgba(29, 136, 208, 0.65);
+}
+.btn.book {
+  background: linear-gradient(180deg, #fe5455, #d43d3a);
+  box-shadow: 0 18px 40px -12px rgba(254, 84, 85, 0.6);
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 75% at 50% 48%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}

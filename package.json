@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/) and My Origin Report (my-origin-report/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/) and Sydney's Plumbing Specialists (sps-plumbing/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -26,7 +26,11 @@
     "origin:build": "npm run origin:audio && npm run origin:frames && npm run origin:encode",
     "origin:frames:9x16": "node scripts/render.mjs --film my-origin-report --format 9x16 --samples 16",
     "origin:encode:9x16": "GRAIN=3 python3 scripts/encode.py my-origin-report/out/frames-9x16 my-origin-report/out/soundtrack.wav my-origin-report/out/my-origin-report-reel-9x16.mp4",
-    "origin:build:9x16": "npm run origin:audio && npm run origin:frames:9x16 && npm run origin:encode:9x16"
+    "origin:build:9x16": "npm run origin:audio && npm run origin:frames:9x16 && npm run origin:encode:9x16",
+    "sps:audio": "node sps-plumbing/scripts/cues.mjs > sps-plumbing/out/cues.json && python3 sps-plumbing/scripts/audio.py sps-plumbing/out/cues.json sps-plumbing/out/soundtrack.wav",
+    "sps:frames": "node scripts/render.mjs --film sps-plumbing --samples 16",
+    "sps:encode": "GRAIN=3 python3 scripts/encode.py sps-plumbing/out/frames sps-plumbing/out/soundtrack.wav sps-plumbing/out/sps-plumbing-reel.mp4",
+    "sps:build": "npm run sps:audio && npm run sps:frames && npm run sps:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
