@@ -1,0 +1,236 @@
+/* ============================================================================
+   EKLEXIC — MOTION REEL
+   From https://www.eklexic.com/ (its Shopify theme): Open Sans for its
+   uppercase headings, Jost for its text (both its own fonts, SIL Open Font
+   License), black on white and warm neutrals, gold and silver pieces; Lora for
+   the serif of its hero line.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/OpenSans-VF.ttf") format("truetype");
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/Jost-VF.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("fonts/Lora-VF.ttf") format("truetype");
+  font-weight: 400 700;
+}
+
+:root {
+  --ink: #1c1c1c;
+  --head: "Open Sans", Arial, sans-serif;
+  --text: "Jost", Arial, sans-serif;
+  --serif: "Lora", Georgia, serif;
+}
+html,
+body {
+  margin: 0;
+  background: #f3ece3;
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: #f3ece3;
+  color: var(--ink);
+  font-family: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.panel {
+  position: absolute;
+  inset: 0;
+}
+
+/* the word behind each piece */
+.word {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  text-align: center;
+  font-family: var(--head);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.word .ch {
+  display: inline-block;
+  will-change: transform;
+}
+.word .clip {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.06em 0 0.1em;
+  margin: -0.06em 0 -0.1em;
+}
+
+/* the piece */
+.piece {
+  position: absolute;
+  transform-origin: 50% 55%;
+}
+.piece img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sheen {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: overlay;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+.contact {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(70, 48, 28, 0.32), rgba(70, 48, 28, 0));
+}
+
+/* the product card, as the site sets it */
+.card {
+  position: absolute;
+  left: 110px;
+  top: 838px;
+}
+.card .n {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.card .p {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 27px;
+  letter-spacing: 0.03em;
+  color: #3c3c3c;
+  white-space: nowrap;
+}
+.card .sw {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.card .sw i {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+}
+.card .sw i.on {
+  outline: 1.5px solid var(--ink);
+  outline-offset: 3px;
+}
+.card .sw span {
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+  margin-left: 6px;
+}
+
+/* chrome: the logo, the line, the counter */
+.small {
+  position: absolute;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.count {
+  position: absolute;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+/* the hero */
+.hero-img {
+  position: absolute;
+  top: 0;
+  height: 1080px;
+  overflow: hidden;
+}
+.hero-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 60% 40%;
+}
+.headline {
+  position: absolute;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 66px;
+  line-height: 1.16;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.04em 0.04em 0.1em;
+  margin: -0.04em -0.04em -0.1em;
+}
+.w {
+  display: inline-block;
+  will-change: transform;
+}
+.sub {
+  position: absolute;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.5;
+  color: #4a4440;
+  white-space: nowrap;
+}
+.cta {
+  position: absolute;
+  height: 68px;
+  padding: 0 42px;
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.2em;
+  line-height: 68px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 80% at 50% 46%,
+    transparent 62%,
+    rgba(60, 40, 20, 0.1) 100%
+  );
+}

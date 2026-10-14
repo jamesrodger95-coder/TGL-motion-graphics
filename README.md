@@ -1,6 +1,6 @@
 # Motion reels
 
-Seven 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur and a procedurally synthesised soundtrack:
+Eight 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur and a procedurally synthesised soundtrack:
 
 | Film                                                       | Folder                                            | Output                                                                                             |
 | ---------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -11,6 +11,7 @@ Seven 1080p60 brand films, each rendered frame by frame from deterministic HTML/
 | **Sydney's Plumbing Specialists**, follow the water in 8 s | [`sps-plumbing/`](sps-plumbing/README.md)         | [`sps-plumbing/out/sps-plumbing-reel.mp4`](sps-plumbing/out/sps-plumbing-reel.mp4)                 |
 | **Tandem**, building common ground in 8 s                  | [`tandem/`](tandem/README.md)                     | [`tandem/out/tandem-reel.mp4`](tandem/out/tandem-reel.mp4)                                         |
 | **Malarkey Roofing Products**, a roof that holds, in 10 s  | [`malarkey/`](malarkey/README.md)                 | [`malarkey/out/malarkey-reel.mp4`](malarkey/out/malarkey-reel.mp4)                                 |
+| **Eklexic**, bold, edgy, glamorous in 10 s                 | [`eklexic/`](eklexic/README.md)                   | [`eklexic/out/eklexic-reel.mp4`](eklexic/out/eklexic-reel.mp4)                                     |
 
 My Origin Report also has a vertical cut for Reels (1080×1920, 9:16):
 [`my-origin-report/out/my-origin-report-reel-9x16.mp4`](my-origin-report/out/my-origin-report-reel-9x16.mp4).

@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/) and Malarkey Roofing Products (malarkey/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/) and Eklexic (eklexic/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -38,7 +38,11 @@
     "malarkey:audio": "node malarkey/scripts/cues.mjs > malarkey/out/cues.json && python3 malarkey/scripts/audio.py malarkey/out/cues.json malarkey/out/soundtrack.wav",
     "malarkey:frames": "node scripts/render.mjs --film malarkey --samples 16",
     "malarkey:encode": "GRAIN=3 python3 scripts/encode.py malarkey/out/frames malarkey/out/soundtrack.wav malarkey/out/malarkey-reel.mp4",
-    "malarkey:build": "npm run malarkey:audio && npm run malarkey:frames && npm run malarkey:encode"
+    "malarkey:build": "npm run malarkey:audio && npm run malarkey:frames && npm run malarkey:encode",
+    "eklexic:audio": "node eklexic/scripts/cues.mjs > eklexic/out/cues.json && python3 eklexic/scripts/audio.py eklexic/out/cues.json eklexic/out/soundtrack.wav",
+    "eklexic:frames": "node scripts/render.mjs --film eklexic --samples 16",
+    "eklexic:encode": "GRAIN=3 python3 scripts/encode.py eklexic/out/frames eklexic/out/soundtrack.wav eklexic/out/eklexic-reel.mp4",
+    "eklexic:build": "npm run eklexic:audio && npm run eklexic:frames && npm run eklexic:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
