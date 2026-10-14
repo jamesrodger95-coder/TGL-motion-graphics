@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and procedural soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/) and Eklexic (eklexic/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and their own soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/) and Eklexic (eklexic/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",

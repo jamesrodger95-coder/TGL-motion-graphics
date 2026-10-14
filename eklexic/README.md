@@ -18,7 +18,7 @@ look at.
 
 The camera moves from piece to piece like a carousel, with parallax: the word
 slower, the piece faster. More of the collection rushes past on every move. It
-ends on the site's own hero. It is cut to a 120 BPM grid (`src/js/timeline.js`).
+ends on the site's own hero. The picture is timed on a 120 BPM grid (`src/js/timeline.js`).
 
 | Time      | Shot          | What happens                                                                                                                                                                                                                                                                                                 |
 | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -58,11 +58,29 @@ npm run preview -- --film eklexic               # live preview in a browser
 ```
 
 The renderer, motion blur (up to 16 sub-frames per frame, 180° shutter) and
-encoder are shared with the other films at the repository root. The
-soundtrack (`scripts/audio.py`) is synthesised from the same cue sheet as the
-picture (`scripts/cues.mjs`). It is a slow, chic house cue in D minor:
+encoder are shared with the other films at the repository root.
 
-- electric-piano chords that change with each piece;
-- four on the floor with snaps on two and four;
-- a glint as each sheen runs, and a swish for every move;
-- the hero resolving on F major.
+## Music
+
+Unlike the other films, this one is cut to a real piece of music rather than
+a synthesised cue. `audio/strut.mp3` is an instrumental generated with Google's
+Lyria 3.5 from a written brief (quoted in `scripts/audio.py`). The brief asks
+for a sultry, confident runway strut for a bold, edgy, glamorous jewelry brand:
+a punchy kick, finger snaps, a sliding 808 bass, Rhodes chords, a wah-guitar
+lick, strings and harp. It came back as a minute-long piece in F minor, ending
+at 96 BPM.
+
+At 96 BPM one bar lasts 2.5 s, exactly one product panel. The film plays the
+track's last ten seconds as one continuous cut, with no edits:
+
+- three bars of the groove, one for each piece, with each bar line (kick,
+  snap, crash) landing in the middle of a move;
+- the track's one-beat stop while the Triple Bloom earrings hold, and its
+  fill into the last move;
+- the final hit at 7.5 s as the hero slides in, ringing out under the
+  headline and **Become Her**.
+
+`scripts/audio.py` finds the bar lines in the track itself and lays the sound
+design over it from the picture's cue sheet (`scripts/cues.mjs`): a glint,
+tuned to the key, as each sheen runs; a swish for every move, with the
+collection rushing past; a last glint on the button.

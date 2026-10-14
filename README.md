@@ -1,6 +1,6 @@
 # Motion reels
 
-Eight 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur and a procedurally synthesised soundtrack:
+Eight 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur. Seven have a procedurally synthesised soundtrack; Eklexic is cut to a music track:
 
 | Film                                                       | Folder                                            | Output                                                                                             |
 | ---------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
