@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and their own soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/), Eklexic (eklexic/) and EDGE® (edge-spray/).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and their own soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/), Eklexic (eklexic/), EDGE® (edge-spray/) and A.Jain (a-jain/, vertical).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -46,7 +46,11 @@
     "edge-spray:audio": "node edge-spray/scripts/cues.mjs > edge-spray/out/cues.json && python3 edge-spray/scripts/audio.py edge-spray/out/cues.json edge-spray/out/soundtrack.wav",
     "edge-spray:frames": "node scripts/render.mjs --film edge-spray --samples 16",
     "edge-spray:encode": "GRAIN=3 python3 scripts/encode.py edge-spray/out/frames edge-spray/out/soundtrack.wav edge-spray/out/edge-spray-reel.mp4",
-    "edge-spray:build": "npm run edge-spray:audio && npm run edge-spray:frames && npm run edge-spray:encode"
+    "edge-spray:build": "npm run edge-spray:audio && npm run edge-spray:frames && npm run edge-spray:encode",
+    "a-jain:audio": "node a-jain/scripts/cues.mjs > a-jain/out/cues.json && python3 a-jain/scripts/audio.py a-jain/out/cues.json a-jain/out/soundtrack.wav",
+    "a-jain:frames": "node scripts/render.mjs --film a-jain --format 9x16 --samples 16",
+    "a-jain:encode": "GRAIN=3 python3 scripts/encode.py a-jain/out/frames-9x16 a-jain/out/soundtrack.wav a-jain/out/a-jain-reel-9x16.mp4",
+    "a-jain:build": "npm run a-jain:audio && npm run a-jain:frames && npm run a-jain:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",

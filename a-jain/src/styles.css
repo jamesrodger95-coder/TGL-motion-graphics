@@ -1,0 +1,126 @@
+/* ============================================================================
+   A.JAIN — MOTION REEL (9:16)
+   From https://a-jain.com/ (its Shopify theme): Noto Serif JP at weight 200
+   for its headings and Maven Pro for its text (both its own fonts, SIL Open
+   Font License), near-black on white and a pale grey, and the colour of its
+   stones.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Noto Serif JP";
+  src: url("fonts/NotoSerifJP-Latin-VF.ttf") format("truetype");
+  font-weight: 200 900;
+}
+@font-face {
+  font-family: "Maven Pro";
+  src: url("fonts/MavenPro-VF.ttf") format("truetype");
+  font-weight: 400 900;
+}
+
+:root {
+  --ink: #121212;
+  --paper: #f6f5f2;
+  --gold: #a9874f;
+  --serif: "Noto Serif JP", Georgia, serif;
+  --sans: "Maven Pro", Arial, sans-serif;
+}
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+}
+#stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ---------------------------------------------------------------- type */
+.serif {
+  font-family: var(--serif);
+  font-weight: 200;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+.caps {
+  font-family: var(--sans);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  white-space: nowrap;
+}
+.centre {
+  position: absolute;
+  left: 0;
+  width: 1080px;
+  text-align: center;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.08em 0 0.12em;
+}
+.mask > span {
+  display: inline-block;
+}
+
+/* ---------------------------------------------------------------- pieces */
+.piece {
+  position: absolute;
+  mix-blend-mode: multiply; /* the studio's white becomes the tile's colour */
+}
+.tile {
+  position: absolute;
+  overflow: hidden;
+}
+.tile img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+.tile .label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(18, 18, 18, 0.62);
+}
+#card {
+  background: #fdfcfa;
+  box-shadow:
+    0 30px 80px rgba(30, 24, 16, 0.18),
+    0 2px 8px rgba(30, 24, 16, 0.08);
+  overflow: hidden;
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 95% 70% at 50% 50%,
+    transparent 62%,
+    rgba(40, 30, 20, 0.1) 100%
+  );
+}

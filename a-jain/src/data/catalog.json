@@ -1,0 +1,486 @@
+{
+ "rings": [
+  {
+   "file": "img/rings/madeira-citrine.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Madeira Citrine",
+   "price": 6250.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    100,
+    36,
+    26
+   ]
+  },
+  {
+   "file": "img/rings/rubellite.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Rubellite",
+   "price": 9000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    121,
+    36,
+    52
+   ]
+  },
+  {
+   "file": "img/rings/peridot.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Peridot",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    97,
+    105,
+    43
+   ]
+  },
+  {
+   "file": "img/rings/london-blue-topaz.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "London Blue Topaz",
+   "price": 6250.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    38,
+    108,
+    132
+   ]
+  },
+  {
+   "file": "img/rings/amethyst.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Amethyst",
+   "price": 6250.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    119,
+    72,
+    119
+   ]
+  },
+  {
+   "file": "img/rings/green-tourmaline.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Green Tourmaline",
+   "price": 7500.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    28,
+    84,
+    41
+   ]
+  },
+  {
+   "file": "img/rings/aquamarine.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Aquamarine",
+   "price": 7500.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    88,
+    126,
+    134
+   ]
+  },
+  {
+   "file": "img/rings/rhodolite.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Rhodolite",
+   "price": 6250.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    99,
+    18,
+    45
+   ]
+  },
+  {
+   "file": "img/rings/swiss-blue-topaz.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Swiss Blue Topaz",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    65,
+    160,
+    184
+   ]
+  },
+  {
+   "file": "img/rings/indicolite.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Indicolite",
+   "price": 9000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    33,
+    64,
+    65
+   ]
+  },
+  {
+   "file": "img/rings/garnet.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Garnet",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    70,
+    28,
+    31
+   ]
+  },
+  {
+   "file": "img/rings/iolite.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Iolite",
+   "price": 6250.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    71,
+    66,
+    120
+   ]
+  },
+  {
+   "file": "img/rings/black-onyx.jpg",
+   "name": "18k Gold Urban Chic Rings with Diamonds",
+   "stone": "Black Onyx",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    71,
+    56,
+    33
+   ]
+  }
+ ],
+ "tiles": [
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-rubellite.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "Rubellite Tourmaline",
+   "price": 10000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    123,
+    38,
+    52
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-aquamarine.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "Aquamarine",
+   "price": 8000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    105,
+    132,
+    134
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-pendants-with-18k-gold-diamonds-double-chain-necklace-london-blue-topaz.jpg",
+   "name": "Urban Chic Pendants with 18k Gold, Diamonds & Double Chain Necklace",
+   "stone": "London Blue Topaz",
+   "price": 3750.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    20,
+    101,
+    133
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-peridot.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "Peridot",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    94,
+    104,
+    44
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-bracelets-with-18k-gold-diamonds-iolite.jpg",
+   "name": "Urban Chic Bracelets with 18k Gold & Diamonds",
+   "stone": "Iolite",
+   "price": 5250.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    91,
+    95,
+    132
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-pendants-with-18k-gold-diamonds-double-chain-necklace-madeira-citrine.jpg",
+   "name": "Urban Chic Pendants with 18k Gold, Diamonds & Double Chain Necklace",
+   "stone": "Madeira Citrine",
+   "price": 3750.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    189,
+    175,
+    168
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-green-tourmaline-1.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "Indicolite Tourmaline",
+   "price": 10000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    33,
+    53,
+    54
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-london-blue-topaz.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "London Blue Topaz",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    24,
+    99,
+    128
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-rings-accented-with-18k-gold-swiss-blue-topaz-with-pink-tourmaline.jpg",
+   "name": "Urban Chic Rings accented with 18k Gold",
+   "stone": "Swiss Blue Topaz with Pink Tourmaline",
+   "price": 975.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    89,
+    146,
+    169
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-madeira-citrine.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "Madeira Citrine",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    96,
+    36,
+    25
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-studs-citrine.jpg",
+   "name": "Urban Chic Studs",
+   "stone": "Citrine",
+   "price": 1375.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    103,
+    49,
+    24
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-pendants-with-18k-gold-diamonds-double-chain-necklace-peridot.jpg",
+   "name": "Urban Chic Pendants with 18k Gold, Diamonds & Double Chain Necklace",
+   "stone": "Peridot",
+   "price": 6500.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    92,
+    106,
+    45
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-18k-gold-studs-with-diamonds-amethyst.jpg",
+   "name": "Urban Chic 18K Gold Studs with Diamonds",
+   "stone": "Amethyst",
+   "price": 6000.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    96,
+    67,
+    108
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-rings-accented-with-18k-gold-peridot-with-citrine.jpg",
+   "name": "Urban Chic Rings accented with 18k Gold",
+   "stone": "Peridot with Citrine",
+   "price": 975.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    103,
+    97,
+    45
+   ]
+  },
+  {
+   "file": "img/tiles/urban-chic-studs-swiss-blue-topaz.jpg",
+   "name": "Urban Chic Studs",
+   "stone": "Swiss Blue Topaz",
+   "price": 1375.0,
+   "collection": "Urban Chic",
+   "rgb": [
+    64,
+    161,
+    186
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-ring-with-18k-gold-diamonds-amethyst.jpg",
+   "name": "Timeless Ring with 18k Gold & Diamonds",
+   "stone": "Amethyst",
+   "price": 3750.0,
+   "collection": "Timeless",
+   "rgb": [
+    78,
+    58,
+    108
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-pendant-with-18k-gold-diamonds-swiss-blue-topaz.jpg",
+   "name": "Timeless Pendant with 18k Gold & Diamonds",
+   "stone": "Swiss Blue Topaz",
+   "price": 4750.0,
+   "collection": "Timeless",
+   "rgb": [
+    67,
+    121,
+    150
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-bracelet-with-18k-gold-diamonds-swiss-blue-topaz.jpg",
+   "name": "Timeless Bracelet with 18k Gold & Diamonds",
+   "stone": "Swiss Blue Topaz",
+   "price": 5250.0,
+   "collection": "Timeless",
+   "rgb": [
+    57,
+    125,
+    162
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-studs-sky-blue-topaz-with-pink-tourmaline.jpg",
+   "name": "Timeless Studs",
+   "stone": "Sky Blue Topaz with Pink Tourmaline",
+   "price": 2150.0,
+   "collection": "Timeless",
+   "rgb": [
+    135,
+    137,
+    154
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-ring-with-18k-gold-diamonds-citrine.jpg",
+   "name": "Timeless Ring with 18k Gold & Diamonds",
+   "stone": "Citrine",
+   "price": 3450.0,
+   "collection": "Timeless",
+   "rgb": [
+    109,
+    69,
+    42
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-pendant-with-18k-gold-diamonds-amethyst.jpg",
+   "name": "Timeless Pendant with 18k Gold & Diamonds",
+   "stone": "Amethyst",
+   "price": 4950.0,
+   "collection": "Timeless",
+   "rgb": [
+    79,
+    62,
+    98
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-bracelet-accented-with-18k-gold-swiss-blue-topaz-with-pink-tourmaline.jpg",
+   "name": "Timeless Bracelet Accented with 18k Gold",
+   "stone": "Swiss Blue Topaz with Pink Tourmaline",
+   "price": 2450.0,
+   "collection": "Timeless",
+   "rgb": [
+    64,
+    120,
+    153
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-studs-rose-lavender-amethyst-with-peridot.jpg",
+   "name": "Timeless Studs",
+   "stone": "Rose Lavender Amethyst with Peridot",
+   "price": 1495.0,
+   "collection": "Timeless",
+   "rgb": [
+    118,
+    105,
+    106
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-ring-with-18k-gold-diamonds-garnet.jpg",
+   "name": "Timeless Ring with 18k Gold & Diamonds",
+   "stone": "Garnet",
+   "price": 3750.0,
+   "collection": "Timeless",
+   "rgb": [
+    62,
+    40,
+    38
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-pendant-with-18k-gold-diamonds-citrine.jpg",
+   "name": "Timeless Pendant with 18k Gold & Diamonds",
+   "stone": "Citrine",
+   "price": 4750.0,
+   "collection": "Timeless",
+   "rgb": [
+    111,
+    63,
+    25
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-bracelet-with-18k-gold-diamonds-amethyst.jpg",
+   "name": "Timeless Bracelet with 18k Gold & Diamonds",
+   "stone": "Amethyst",
+   "price": 5500.0,
+   "collection": "Timeless",
+   "rgb": [
+    75,
+    55,
+    109
+   ]
+  },
+  {
+   "file": "img/tiles/timeless-studs-with-18k-gold-and-diamonds-london-blue-topaz.jpg",
+   "name": "Timeless Studs with 18K Gold and Diamonds",
+   "stone": "London Blue Topaz",
+   "price": 5750.0,
+   "collection": "Timeless",
+   "rgb": [
+    22,
+    98,
+    127
+   ]
+  }
+ ]
+}

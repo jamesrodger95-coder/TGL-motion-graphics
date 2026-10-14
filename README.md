@@ -1,6 +1,6 @@
 # Motion reels
 
-Nine 1080p60 brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur. Seven have a procedurally synthesised soundtrack; Eklexic and EDGE® are cut to music tracks:
+Ten 60 fps brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur. Seven have a procedurally synthesised soundtrack; Eklexic, EDGE® and A.Jain are cut to music tracks:
 
 | Film                                                       | Folder                                            | Output                                                                                             |
 | ---------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -13,6 +13,7 @@ Nine 1080p60 brand films, each rendered frame by frame from deterministic HTML/S
 | **Malarkey Roofing Products**, a roof that holds, in 10 s  | [`malarkey/`](malarkey/README.md)                 | [`malarkey/out/malarkey-reel.mp4`](malarkey/out/malarkey-reel.mp4)                                 |
 | **Eklexic**, bold, edgy, glamorous in 10 s                 | [`eklexic/`](eklexic/README.md)                   | [`eklexic/out/eklexic-reel.mp4`](eklexic/out/eklexic-reel.mp4)                                     |
 | **EDGE®**, spray to play, in 10 s                          | [`edge-spray/`](edge-spray/README.md)             | [`edge-spray/out/edge-spray-reel.mp4`](edge-spray/out/edge-spray-reel.mp4)                         |
+| **A.Jain**, thirteen stones, one ring, in 10 s (9:16)      | [`a-jain/`](a-jain/README.md)                     | [`a-jain/out/a-jain-reel-9x16.mp4`](a-jain/out/a-jain-reel-9x16.mp4)                               |
 
 My Origin Report also has a vertical cut for Reels (1080×1920, 9:16):
 [`my-origin-report/out/my-origin-report-reel-9x16.mp4`](my-origin-report/out/my-origin-report-reel-9x16.mp4).
