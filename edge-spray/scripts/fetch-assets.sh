@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Re-downloads EDGE®'s artwork from edgespray.com (its Shopify CDN) into
 # edge-spray/src/: the transparent product shots (Grip Spray, Grip Wipes,
-# Advanced Grip System), the court photograph from its hero, the macro of its
-# grip formula, and the EDGE® wordmark, traced to a vector by trace-logo.py.
+# Advanced Grip System), the court photograph from its hero, and the EDGE®
+# wordmark, traced to a vector by trace-logo.py.
 # Also Saira and JetBrains Mono (SIL Open Font License, from Google Fonts'
 # GitHub), stand-ins for the site's own licensed faces (Industry and PP
 # Fraktion Mono). Everything is committed; this only refreshes it.
@@ -21,13 +21,11 @@ get "$CDN/EDGE_SPRAY_2OZ_HR.png" src/img/grip-spray.png
 get "$CDN/30_CT_HR.png" src/img/grip-wipes.png
 get "$CDN/GRIP_SYSTEM_HR.png" src/img/grip-system.png
 get "$CDN/Hero_Photo_Main_1.webp" "$TMP/court.webp"
-get "$CDN/formula.webp" "$TMP/formula.webp"
 python3 -I - "$TMP" <<'PY'
 import sys
 from PIL import Image
 tmp = sys.argv[1]
 Image.open(f"{tmp}/court.webp").convert("RGB").save("src/img/court.jpg", quality=94, subsampling=0)
-Image.open(f"{tmp}/formula.webp").convert("RGB").resize((1200, 1188), Image.LANCZOS).save("src/img/formula.jpg", quality=92, subsampling=0)
 PY
 
 G=https://raw.githubusercontent.com/google/fonts/main/ofl
