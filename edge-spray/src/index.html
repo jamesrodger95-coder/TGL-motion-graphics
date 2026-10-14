@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>EDGE® — Motion Reel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- A 1920x1080 stage. js/main.js positions everything as a pure function
+         of time, so any frame can be rendered in any order. -->
+    <div id="stage">
+      <div id="pickup" class="scene"></div>
+      <div id="spray" class="scene"></div>
+      <div id="grip" class="scene"></div>
+      <div id="range" class="scene"></div>
+      <div id="end" class="scene"></div>
+      <canvas id="mist" class="layer" width="1920" height="1080"></canvas>
+      <div id="grade" class="layer"></div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

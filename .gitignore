@@ -26,3 +26,6 @@ malarkey/out/render*.log
 eklexic/out/frames/
 eklexic/out/cues.json
 eklexic/out/render*.log
+edge-spray/out/frames/
+edge-spray/out/cues.json
+edge-spray/out/render*.log

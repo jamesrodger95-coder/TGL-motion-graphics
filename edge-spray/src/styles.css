@@ -1,0 +1,151 @@
+/* ============================================================================
+   EDGE® — MOTION REEL
+   From https://www.edgespray.com/ (its Shopify theme): neon #e2e319 on
+   #0a0a0a, heavy squared display type (Industry) and a mono for its labels
+   (PP Fraktion Mono), set in outlined tags. Both faces are licensed, so the
+   film uses Saira and JetBrains Mono (SIL Open Font License) in their place.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Saira";
+  src: url("fonts/Saira-VF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-VF.ttf") format("truetype");
+  font-weight: 100 800;
+}
+
+:root {
+  --neon: #e2e319;
+  --ink: #0a0a0a;
+  --paper: #ececea;
+  --white: #f5f5f5;
+  --head: "Saira", Arial, sans-serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+}
+html,
+body {
+  margin: 0;
+  background: #0a0a0a;
+}
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--head);
+  -webkit-font-smoothing: antialiased;
+}
+.layer,
+.scene {
+  position: absolute;
+  inset: 0;
+}
+.scene {
+  visibility: hidden;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+canvas.layer {
+  width: 1920px;
+  height: 1080px;
+}
+
+/* ---------------------------------------------------------------- type */
+.big {
+  position: absolute;
+  font-family: var(--head);
+  font-weight: 860;
+  font-stretch: 74%;
+  text-transform: uppercase;
+  line-height: 0.8;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+.mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.04em 0.02em 0.02em;
+}
+.mask > span {
+  display: block;
+  transform-origin: 0 100%;
+}
+.mono {
+  font-family: var(--mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* The site's tags: mono capitals in a ruled box. */
+.tag {
+  position: absolute;
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 11px 16px 10px;
+  border: 3px solid currentColor;
+  transform-origin: 0 50%;
+}
+.tag.solid {
+  border-color: transparent;
+}
+
+/* ---------------------------------------------------------------- products */
+.product {
+  position: absolute;
+  transform-origin: 50% 100%;
+}
+.contact {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
+}
+
+/* ---------------------------------------------------------------- grip */
+.photo {
+  position: absolute;
+  overflow: hidden;
+}
+.photo img {
+  position: absolute;
+  filter: grayscale(1) contrast(1.18) brightness(0.96);
+}
+.photo .duo {
+  position: absolute;
+  inset: 0;
+  background: var(--neon);
+  mix-blend-mode: multiply;
+}
+.label {
+  font-family: var(--head);
+  font-weight: 760;
+  font-stretch: 92%;
+  font-size: 38px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  fill: var(--white);
+}
+
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 75% at 50% 48%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+}
