@@ -1,19 +1,22 @@
 # Motion reels
 
-Ten 60 fps brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur. Seven have a procedurally synthesised soundtrack; Eklexic, EDGE® and A.Jain are cut to music tracks:
+Thirteen 60 fps brand films, each rendered frame by frame from deterministic HTML/SVG with true motion blur. Most have a procedurally synthesised soundtrack; Eklexic, A.Jain and both EDGE® films are cut to music tracks:
 
-| Film                                                       | Folder                                            | Output                                                                                             |
-| ---------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Grow Label**, AI revenue operations for clinics          | repository root                                   | [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4)                                               |
-| **Bryant Dental**, "Humanity, augmented."                  | [`bryant-dental/`](bryant-dental/README.md)       | [`bryant-dental/out/bryant-dental-reel.mp4`](bryant-dental/out/bryant-dental-reel.mp4)             |
-| **Everyone's Energy**, one day of solar in 15 s            | [`everyones-energy/`](everyones-energy/README.md) | [`everyones-energy/out/everyones-energy-reel.mp4`](everyones-energy/out/everyones-energy-reel.mp4) |
-| **My Origin Report**, one surname's story in 24 s          | [`my-origin-report/`](my-origin-report/README.md) | [`my-origin-report/out/my-origin-report-reel.mp4`](my-origin-report/out/my-origin-report-reel.mp4) |
-| **Sydney's Plumbing Specialists**, follow the water in 8 s | [`sps-plumbing/`](sps-plumbing/README.md)         | [`sps-plumbing/out/sps-plumbing-reel.mp4`](sps-plumbing/out/sps-plumbing-reel.mp4)                 |
-| **Tandem**, building common ground in 8 s                  | [`tandem/`](tandem/README.md)                     | [`tandem/out/tandem-reel.mp4`](tandem/out/tandem-reel.mp4)                                         |
-| **Malarkey Roofing Products**, a roof that holds, in 10 s  | [`malarkey/`](malarkey/README.md)                 | [`malarkey/out/malarkey-reel.mp4`](malarkey/out/malarkey-reel.mp4)                                 |
-| **Eklexic**, bold, edgy, glamorous in 10 s                 | [`eklexic/`](eklexic/README.md)                   | [`eklexic/out/eklexic-reel.mp4`](eklexic/out/eklexic-reel.mp4)                                     |
-| **EDGE®**, spray to play, in 10 s                          | [`edge-spray/`](edge-spray/README.md)             | [`edge-spray/out/edge-spray-reel.mp4`](edge-spray/out/edge-spray-reel.mp4)                         |
-| **A.Jain**, thirteen stones, one ring, in 10 s (9:16)      | [`a-jain/`](a-jain/README.md)                     | [`a-jain/out/a-jain-reel-9x16.mp4`](a-jain/out/a-jain-reel-9x16.mp4)                               |
+| Film                                                       | Folder                                              | Output                                                                                                           |
+| ---------------------------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Grow Label**, AI revenue operations for clinics          | repository root                                     | [`out/grow-label-reel.mp4`](out/grow-label-reel.mp4)                                                             |
+| **Bryant Dental**, "Humanity, augmented."                  | [`bryant-dental/`](bryant-dental/README.md)         | [`bryant-dental/out/bryant-dental-reel.mp4`](bryant-dental/out/bryant-dental-reel.mp4)                           |
+| **Everyone's Energy**, one day of solar in 15 s            | [`everyones-energy/`](everyones-energy/README.md)   | [`everyones-energy/out/everyones-energy-reel.mp4`](everyones-energy/out/everyones-energy-reel.mp4)               |
+| **My Origin Report**, one surname's story in 24 s          | [`my-origin-report/`](my-origin-report/README.md)   | [`my-origin-report/out/my-origin-report-reel.mp4`](my-origin-report/out/my-origin-report-reel.mp4)               |
+| **Sydney's Plumbing Specialists**, follow the water in 8 s | [`sps-plumbing/`](sps-plumbing/README.md)           | [`sps-plumbing/out/sps-plumbing-reel.mp4`](sps-plumbing/out/sps-plumbing-reel.mp4)                               |
+| **Tandem**, building common ground in 8 s                  | [`tandem/`](tandem/README.md)                       | [`tandem/out/tandem-reel.mp4`](tandem/out/tandem-reel.mp4)                                                       |
+| **Malarkey Roofing Products**, a roof that holds, in 10 s  | [`malarkey/`](malarkey/README.md)                   | [`malarkey/out/malarkey-reel.mp4`](malarkey/out/malarkey-reel.mp4)                                               |
+| **Eklexic**, bold, edgy, glamorous in 10 s                 | [`eklexic/`](eklexic/README.md)                     | [`eklexic/out/eklexic-reel.mp4`](eklexic/out/eklexic-reel.mp4)                                                   |
+| **EDGE®**, spray to play, in 10 s                          | [`edge-spray/`](edge-spray/README.md)               | [`edge-spray/out/edge-spray-reel.mp4`](edge-spray/out/edge-spray-reel.mp4)                                       |
+| **A.Jain**, thirteen stones, one ring, in 10 s (9:16)      | [`a-jain/`](a-jain/README.md)                       | [`a-jain/out/a-jain-reel-9x16.mp4`](a-jain/out/a-jain-reel-9x16.mp4)                                             |
+| **Elaina Badro**, luxury, calm and slow (9:16, brief)      | [`elaina-badro/`](elaina-badro/README.md)           | [`elaina-badro/out/elaina-badro-reel-9x16.mp4`](elaina-badro/out/elaina-badro-reel-9x16.mp4)                     |
+| **Human Improvement**, clean and confident (9:16, brief)   | [`human-improvement/`](human-improvement/README.md) | [`human-improvement/out/human-improvement-reel-9x16.mp4`](human-improvement/out/human-improvement-reel-9x16.mp4) |
+| **EDGE®**, bold and punchy (9:16, brief)                   | [`edge-spray-9x16/`](edge-spray-9x16/README.md)     | [`edge-spray-9x16/out/edge-spray-reel-9x16.mp4`](edge-spray-9x16/out/edge-spray-reel-9x16.mp4)                   |
 
 My Origin Report also has a vertical cut for Reels (1080×1920, 9:16):
 [`my-origin-report/out/my-origin-report-reel-9x16.mp4`](my-origin-report/out/my-origin-report-reel-9x16.mp4).

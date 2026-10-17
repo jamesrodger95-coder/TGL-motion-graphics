@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>EDGE® — Vertical Reel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- A 1080x1920 (9:16) stage. js/main.js positions everything as a pure
+         function of time, so any frame can be rendered in any order. The
+         artwork is the EDGE® landscape film's (../../edge-spray/src/). -->
+    <div id="stage">
+      <div id="head" class="layer"></div>
+      <div id="hero" class="layer">
+        <div id="num" class="big">+25%</div>
+        <div id="grip" class="big">Grip</div>
+        <div id="halo" class="abs"></div>
+        <div id="shadow" class="abs"></div>
+        <img id="bottle" class="abs" src="../../edge-spray/src/img/grip-spray.png" alt="" />
+        <div id="tag" class="tag">Lab-proven</div>
+      </div>
+      <div id="end" class="layer">
+        <div id="logo" class="abs"></div>
+        <div id="site" class="site">edgespray.com</div>
+        <div id="cta" class="cta">Shop now</div>
+      </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

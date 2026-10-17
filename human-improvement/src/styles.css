@@ -1,0 +1,77 @@
+/* ============================================================================
+   HUMAN IMPROVEMENT — MOTION REEL (9:16)
+   From https://buyhi.co/: its warm cream #efebe6, near-black #1c1d1d and
+   orange #f2591e. Its type is Sharp Grotesk (licensed), so the film uses
+   Schibsted Grotesk (SIL Open Font License) in its place.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Schibsted Grotesk";
+  src: url("fonts/SchibstedGrotesk-VF.ttf") format("truetype");
+  font-weight: 400 900;
+}
+
+:root {
+  --cream: #efebe6;
+  --ink: #1c1d1d;
+  --orange: #f2591e;
+}
+html,
+body {
+  margin: 0;
+  background: var(--cream);
+}
+#stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Schibsted Grotesk", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.head,
+.benefit,
+.trust,
+.site {
+  position: absolute;
+  left: 0;
+  width: 1080px;
+  text-align: center;
+}
+.head {
+  font-weight: 600;
+  font-size: 132px;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.accent {
+  color: var(--orange);
+}
+.benefit {
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+.trust {
+  font-weight: 500;
+  font-size: 54px;
+  letter-spacing: -0.005em;
+}
+.site {
+  font-weight: 600;
+  font-size: 46px;
+  letter-spacing: 0.02em;
+  color: var(--orange);
+}
+#shadow {
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(28, 29, 29, 0.22), rgba(28, 29, 29, 0));
+}

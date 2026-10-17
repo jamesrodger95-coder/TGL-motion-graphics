@@ -1,0 +1,81 @@
+/* ============================================================================
+   ELAINA BADRO — MOTION REEL (9:16)
+   From https://elainabadro.com/: its blush #f7a28d, black, and the black and
+   gold of its packaging. Jost is the site's own text face (its Futura
+   stand-in). The site has no serif of its own, so the line is set in
+   Cormorant Garamond. Both SIL Open Font License.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/Jost-VF.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-VF.ttf") format("truetype");
+  font-weight: 300 700;
+}
+
+:root {
+  --blush: #f7a28d;
+  --ink: #000000;
+}
+html,
+body {
+  margin: 0;
+  background: var(--blush);
+}
+#stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--blush);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#lipstick {
+  position: absolute;
+  mix-blend-mode: multiply; /* the studio's white becomes the blush */
+}
+.line {
+  position: absolute;
+  left: 0;
+  width: 1080px;
+  text-align: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: 104px;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+.site {
+  position: absolute;
+  left: 0;
+  width: 1080px;
+  text-align: center;
+  font-family: "Jost", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 27px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+#grade {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 70% at 50% 46%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 55%,
+    rgba(120, 50, 40, 0.1) 100%
+  );
+}

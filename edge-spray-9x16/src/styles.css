@@ -1,0 +1,108 @@
+/* ============================================================================
+   EDGE® — VERTICAL REEL (9:16)
+   From https://www.edgespray.com/: neon #e2e319 on #0a0a0a, heavy squared
+   display type and mono labels. The site's faces are licensed (Industry, PP
+   Fraktion Mono), so, as in the landscape film, Saira and JetBrains Mono
+   (SIL Open Font License) stand in.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Saira";
+  src: url("../../edge-spray/src/fonts/Saira-VF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../../edge-spray/src/fonts/JetBrainsMono-VF.ttf") format("truetype");
+  font-weight: 100 800;
+}
+
+:root {
+  --neon: #e2e319;
+  --ink: #0a0a0a;
+  --white: #f5f5f5;
+}
+html,
+body {
+  margin: 0;
+  background: var(--ink);
+}
+#stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--neon);
+  font-family: "Saira", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.big {
+  position: absolute;
+  left: 0;
+  width: 1080px;
+  text-align: center;
+  font-weight: 880;
+  font-stretch: 76%;
+  text-transform: uppercase;
+  line-height: 0.86;
+  white-space: nowrap;
+}
+.tag {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 800;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 16px 26px 14px;
+  background: var(--neon);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.site {
+  position: absolute;
+  left: 0;
+  width: 1080px;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 44px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+.cta {
+  position: absolute;
+  font-weight: 860;
+  font-stretch: 82%;
+  font-size: 76px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 18px 64px 16px;
+  background: var(--neon);
+  color: var(--ink);
+  white-space: nowrap;
+}
+#shadow {
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(226, 227, 25, 0.28), rgba(226, 227, 25, 0));
+}
+#halo {
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(226, 227, 25, 0.22),
+    rgba(226, 227, 25, 0.06) 60%,
+    rgba(226, 227, 25, 0)
+  );
+}

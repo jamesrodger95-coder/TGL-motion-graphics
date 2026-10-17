@@ -2,7 +2,7 @@
   "name": "tgl-motion-graphics",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and their own soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/), Eklexic (eklexic/), EDGE® (edge-spray/) and A.Jain (a-jain/, vertical).",
+  "description": "Motion reels rendered from deterministic HTML/SVG frames with true motion blur and their own soundtracks: Grow Label (root), Bryant Dental (bryant-dental/), Everyone's Energy (everyones-energy/), My Origin Report (my-origin-report/), Sydney's Plumbing Specialists (sps-plumbing/), Tandem (tandem/), Malarkey Roofing Products (malarkey/), Eklexic (eklexic/), EDGE® (edge-spray/), A.Jain (a-jain/, vertical), and three vertical briefs: Elaina Badro (elaina-badro/), Human Improvement (human-improvement/) and EDGE® (edge-spray-9x16/).",
   "type": "module",
   "scripts": {
     "preview": "node scripts/preview.mjs",
@@ -50,7 +50,19 @@
     "a-jain:audio": "node a-jain/scripts/cues.mjs > a-jain/out/cues.json && python3 a-jain/scripts/audio.py a-jain/out/cues.json a-jain/out/soundtrack.wav",
     "a-jain:frames": "node scripts/render.mjs --film a-jain --format 9x16 --samples 16",
     "a-jain:encode": "GRAIN=3 python3 scripts/encode.py a-jain/out/frames-9x16 a-jain/out/soundtrack.wav a-jain/out/a-jain-reel-9x16.mp4",
-    "a-jain:build": "npm run a-jain:audio && npm run a-jain:frames && npm run a-jain:encode"
+    "a-jain:build": "npm run a-jain:audio && npm run a-jain:frames && npm run a-jain:encode",
+    "elaina-badro:audio": "node elaina-badro/scripts/cues.mjs > elaina-badro/out/cues.json && python3 elaina-badro/scripts/audio.py elaina-badro/out/cues.json elaina-badro/out/soundtrack.wav",
+    "elaina-badro:frames": "node scripts/render.mjs --film elaina-badro --format 9x16 --samples 16",
+    "elaina-badro:encode": "GRAIN=2 python3 scripts/encode.py elaina-badro/out/frames-9x16 elaina-badro/out/soundtrack.wav elaina-badro/out/elaina-badro-reel-9x16.mp4",
+    "elaina-badro:build": "npm run elaina-badro:audio && npm run elaina-badro:frames && npm run elaina-badro:encode",
+    "human-improvement:audio": "node human-improvement/scripts/cues.mjs > human-improvement/out/cues.json && python3 human-improvement/scripts/audio.py human-improvement/out/cues.json human-improvement/out/soundtrack.wav",
+    "human-improvement:frames": "node scripts/render.mjs --film human-improvement --format 9x16 --samples 16",
+    "human-improvement:encode": "GRAIN=2 python3 scripts/encode.py human-improvement/out/frames-9x16 human-improvement/out/soundtrack.wav human-improvement/out/human-improvement-reel-9x16.mp4",
+    "human-improvement:build": "npm run human-improvement:audio && npm run human-improvement:frames && npm run human-improvement:encode",
+    "edge-spray-9x16:audio": "node edge-spray-9x16/scripts/cues.mjs > edge-spray-9x16/out/cues.json && python3 edge-spray-9x16/scripts/audio.py edge-spray-9x16/out/cues.json edge-spray-9x16/out/soundtrack.wav",
+    "edge-spray-9x16:frames": "node scripts/render.mjs --film edge-spray-9x16 --format 9x16 --samples 16",
+    "edge-spray-9x16:encode": "GRAIN=3 python3 scripts/encode.py edge-spray-9x16/out/frames-9x16 edge-spray-9x16/out/soundtrack.wav edge-spray-9x16/out/edge-spray-reel-9x16.mp4",
+    "edge-spray-9x16:build": "npm run edge-spray-9x16:audio && npm run edge-spray-9x16:frames && npm run edge-spray-9x16:encode"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
